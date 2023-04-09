@@ -103,7 +103,7 @@
 
                <div class="form-group mb-3">
                   <label for="product-description">Product Description <span class="text-danger">*</span></label>
-                  <textarea class="form-control" name="description" id="product-description" rows="5"
+                  <textarea class="form-control summernote" name="description" id="product-description" rows="5"
                      placeholder="Please enter description" required>{{ $product->description }}</textarea>
                </div>
 
@@ -162,7 +162,10 @@
                      </div>
                   </div>
                </div>
-
+               <div class="form-group mb-3">
+                <label for="product-detail">Product Details</label>
+                <textarea class="form-control summernote" name="detail" id="product-detail" rows="5" placeholder="Please enter detail" >{{ $product->detail }}</textarea>
+             </div>
             </div> <!-- end card-box -->
          </div> <!-- end col -->
 
@@ -211,6 +214,14 @@
                         </div>
                      </div>
                   </div>
+                  <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="product-sell-limit">
+                            Sell Limit <span class="text-danger">*</span>
+                         </label>
+                         <input type="number" name="sell_limit" class="form-control" id="product-sell-limit" value="{{ $product->sell_limit }}" placeholder="Enter Sell Limit" required>
+                    </div>
+                  </div>
                </div>
 
                <h5 class="text-uppercase mt-0 bg-light p-2">Feature Image</h5>
@@ -235,7 +246,7 @@
                >
                <input type="hidden" id="delete_image_url" value="{{ url('admin/products/media') }}">
 
-               <div class="form-group mt-3 mb-0">
+               <div class="form-group mt-3">
                   <label class="mb-2">Status <span class="text-danger">*</span></label>
                   <br />
                   <div class="radio form-check-inline">
@@ -247,6 +258,10 @@
                      <label for="inlineRadio2"> Draft </label>
                   </div>
                </div>
+               <div class="form-group mb-3">
+                <label for="other-information">Other Information</label>
+                <textarea class="form-control summernote" name="other_information" id="orther-information" rows="5" placeholder="Please enter other information" >{{ $product->other_information }}</textarea>
+             </div>
             </div> <!-- end col-->
 
          </div> <!-- end col-->
@@ -315,7 +330,7 @@
 <script>
    $(document).ready(function() {
 
-            $('#product-description').summernote({
+            $('.summernote').summernote({
                height: 180,
                // set editor height
                minHeight: null,

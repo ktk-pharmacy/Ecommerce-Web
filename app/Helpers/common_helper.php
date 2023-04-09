@@ -206,3 +206,17 @@ function calculateCouponAmount($totalCart, $coupon)
     return $coupon_amount;
 }
 
+function productCountInCart($product){
+    $cart_products = getCartDetails()['products'];
+    if ($cart_products) {
+        $same_with_param_product = collect($cart_products)->filter(function ($data) use($product) {
+            return $data['id'] == $product->id;
+        });
+        foreach ($same_with_param_product as $p) {
+            return $p['cart_quantity'];
+        }
+    }
+    return 0;
+
+}
+

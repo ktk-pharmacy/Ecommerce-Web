@@ -32,12 +32,14 @@ Route::group(['prefix' => 'auth'], function () {
     });
 });
 
-Route::group(['prefix' => 'v1', 'middleware' => ['auth:customer'], 'namespace' => 'Api\v1'], function () {
+Route::group(['prefix' => 'v1','namespace' => 'Api\v1','middleware' => ['auth:customer']], function () {
     // API Version V1 Routes
+    //
     Route::get('categories', 'CategoryController@index');
     Route::get('categories/{id}/products', 'CategoryController@getProductsByCategory');
     Route::get('products', 'ProductController@index');
     Route::get('products/{id}', 'ProductController@show');
+    Route::get('products/{slug}', 'ProductController@showSlug');
     Route::get('products/{id}/galleries', 'ProductController@getGalleries');
 
     Route::get('carts', 'CartController@index');

@@ -24,6 +24,13 @@ class ProductController extends Controller
         return response()->success('Success!', 200, $data);
     }
 
+    public function showSlug($slug)
+    {
+        $product = Product::with('brand', 'sub_category.parent.group', 'galleries')->where('slug',$slug)->first();
+        $data = new ProductResource($product);
+        return response()->success('Success!', 200, $data);
+    }
+
     public function getGalleries($id)
     {
         $galleries = Product::where('products.id', $id)->join('media', function ($join) {

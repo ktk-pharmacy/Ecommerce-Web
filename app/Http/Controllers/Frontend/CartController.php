@@ -22,12 +22,16 @@ class CartController extends Controller
         $customerId = session('customerId');
 
         foreach ($request->cart_products as $product_id => $value) {
-            Cart::where([
+            $product = Product::findOrFail($product_id);
+            $cart_item = Cart::where([
                 'customer_id' => $customerId,
                 'product_id' => $product_id
-            ])->update([
-                'quantity' => $value['quantity']
-            ]);
+            ])->first();
+            if ($value['quantity']>$product->sell_limit) {
+                return redirect()->back()->with('error', "$product->name Quantity is over limitting!");
+            }
+            $cart_item->quantity = $value['quantity'];
+            $cart_item->save();
         }
         return redirect()->back()->with('success', 'Successfully updated!');
     }
@@ -35,16 +39,27 @@ class CartController extends Controller
     public function addToCart(Request $request, $id)
     {
         $customerId = session('customerId');
-
+        $product = Product::active()->findOrFail($id);
         try {
             $existCartProduct = Cart::where([
                 'customer_id' => $customerId,
                 'product_id' => $id
-            ])->increment('quantity', $request->quantity);
+            ])->first();
 
-            if (!$existCartProduct) {
-                $product = Product::active()->findOrFail($id);
+            if ($existCartProduct) {
+                $total_qty = $existCartProduct->quantity + $request->quantity;
+                if ($total_qty>$product->sell_limit) {
+                    return response()->json([
+                        'message' => 'fail'
+                    ], 200);
+                } else {
+                    Cart::findOrFail($existCartProduct->id)
+                    ->update([
+                        'quantity'=>$total_qty
+                    ]);
+                }
 
+            } else {
                 Cart::create([
                     'customer_id' => $customerId,
                     'product_id' => $product->id,

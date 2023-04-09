@@ -30,7 +30,13 @@ function addToCart(e) {
                         $(".mini-cart-product-area").html(cart_menu);
                     },
                 });
-            } else {
+            } else if (data.message == "fail") {
+                Toast.fire({
+                    icon: "error",
+                    title: "Quantity is over limitting!",
+                });
+            }
+            else {
                 Toast.fire({
                     icon: "error",
                     title: "Something want wrong!",

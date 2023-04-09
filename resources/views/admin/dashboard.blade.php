@@ -152,7 +152,7 @@
                 </div>
             </div> <!-- end card-box -->
         </div> <!-- end col-->
-       
+
         <div class="col-lg-3">
             <div class="card-box">
 
@@ -197,14 +197,14 @@
             </div> <!-- end card-box -->
         </div> <!-- end col-->
     </div>
-   
+
     <div class="row">
     </div>
     <div class="row">
         <div class="col-md-12 col-xl-12">
             <h4 class="page-title mt-3" style="text-align: center;">Myan San Admin Dashboard</h4>
         </div>
-      
+
     </div>
     <div class="row">
         <div class="card-box col-12 pb-2">
@@ -217,6 +217,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('script')
@@ -416,7 +417,7 @@
         var chart = new ApexCharts(document.querySelector("#sales-analytics"), options);
         chart.render();
 
-   
+
         // Category_groups Analytics
         //
         let category_groups = @json($category_groups_analytics_by_month);

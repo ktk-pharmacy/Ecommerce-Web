@@ -10229,7 +10229,8 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     .shop-details-info .product-price {
         font-size: 36px;
     }
-    .shop-details-info .cart-plus-minus {
+    .shop-details-info .cart-plus-minus,
+    .shop-details-info .cart-plus-minus-2 {
         width: 130px;
     }
     .shop-details-info .ltn__product-details-menu-2 .btn {
@@ -13827,7 +13828,8 @@ blockquote::before {
 /* ----------------------------------------------------
     Cart plus minus
 ---------------------------------------------------- */
-.cart-plus-minus {
+.cart-plus-minus,
+.cart-plus-minus-2 {
     border: 2px solid;
     height: 63px;
     line-height: 56px;
@@ -13835,31 +13837,38 @@ blockquote::before {
     text-align: center;
 }
 
-.qtybutton {
+.qtybutton,
+.qtybtn {
     height: 100%;
     width: 30%;
 }
 
-.dec.qtybutton {
+.dec.qtybutton,
+.dec.qtybtn {
     float: left;
     border-right: 2px solid;
 }
 
-.inc.qtybutton {
+.inc.qtybutton,
+.inc.qtybtn {
     float: right;
     border-left: 2px solid;
 }
 
 .cart-plus-minus,
+.cart-plus-minus-2,
 .dec.qtybutton,
-.inc.qtybutton {
+.dec.qtybtn,
+.inc.qtybutton,
+.inc.qtybtn {
     background-color: var(--white);
     border-color: var(--border-color-11);
     font-size: 20px;
     font-weight: 700;
 }
 
-input.cart-plus-minus-box {
+input.cart-plus-minus-box,
+input.cart-plus-minus-box-2 {
     background: transparent none repeat scroll 0 0;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -13890,7 +13899,8 @@ input.cart-plus-minus-box {
     margin-bottom: 30px;
 }
 
-.product-details-content .cart-plus-minus {
+.product-details-content .cart-plus-minus,
+.product-details-content .cart-plus-minus-2 {
     display: inline-block;
     margin-right: 20px;
 }
@@ -14025,7 +14035,8 @@ input.cart-plus-minus-box {
     .cart-product-image {
         max-width: 100%;
     }
-    .shoping-cart-table .cart-plus-minus {
+    .shoping-cart-table .cart-plus-minus,
+    .shoping-cart-table .cart-plus-minus-2 {
         margin-left: auto;
         margin-right: auto;
     }

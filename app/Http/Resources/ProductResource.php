@@ -30,10 +30,12 @@ class ProductResource extends JsonResource
             "net_weight" => (float)$this->net_weight,
             "gross_weight" => (float)$this->gross_weight,
             "sold_count" => $this->sold_count,
+            "sell_limit" => $this->sell_limit,
             "is_new" => $this->is_new,
             "feature_image" => $this->feature_image,
             "galleries" => ProductGalleryCollection::collection($this->galleries),
-            "description" => $this->description,
+            "detail" => $this->detail,
+            "other_information" => $this->other_information
         ];
     }
 }

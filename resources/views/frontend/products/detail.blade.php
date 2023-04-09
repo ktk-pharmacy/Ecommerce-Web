@@ -4,7 +4,9 @@
 @endsection
 
 @section('main-content')
-
+@php
+    $sell_limit = $product->sell_limit - productCountInCart($product);
+@endphp
 <!-- SHOP DETAILS AREA START -->
 <div class="ltn__shop-details-area pb-85">
    <div class="container">
@@ -43,7 +45,7 @@
                         <!-- Images -->
                         <div class="exzoom_img_box">
                             <ul class='exzoom_img_ul'>
-                                <li><img src="{{ asset($product->feature_image) }}" /></li>
+                                <li><img src="{{ $product->feature_image }}" /></li>
                                 @foreach ($product->galleries as $gallery)
                                 <li><img src="{{ $gallery->image_url }}" alt="{{ $product->name }}'s Image" /></li>
                                 @endforeach
@@ -115,18 +117,21 @@
                                     <input type="text" value="1" name="qtybutton" id="cart-quantity" class="cart-plus-minus-box">
                                  </div>
                               </li>
+                              @if (productCountInCart($product) !== $product->sell_limit)
                               <li>
-                                 <a
-                                    href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.url()->full() }}"
-                                    class="theme-btn-1 btn btn-effect-1"
-                                    title="Add to Cart"
-                                    onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                    data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $product->id) }}"
-                                 >
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <span>ADD TO CART</span>
-                                 </a>
-                              </li>
+                                <a
+                                   href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.url()->full() }}"
+                                   class="theme-btn-1 btn btn-effect-1"
+                                   title="Add to Cart"
+                                   onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                   data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $product->id) }}"
+                                >
+                                   <i class="fas fa-shopping-cart"></i>
+                                   <span>ADD TO CART</span>
+                                </a>
+                             </li>
+                              @endif
+
                            </ul>
                         </div>
                         <div class="ltn__product-details-menu-3">
@@ -485,6 +490,32 @@
                 "navBorder": 1,
                     // autoplay
                 "autoPlay": false,
+            });
+
+        /* --------------------------------------------------------
+            Quantity plus minus
+        -------------------------------------------------------- */
+        var sell_limit = Number("{{ $sell_limit }}");
+
+        $(".cart-plus-minus").prepend('<div class="dec qtybutton">-</div>');
+        $(".cart-plus-minus").append('<div class="inc qtybutton">+</div>');
+        $(".qtybutton").on("click", function () {
+                var $button = $(this);
+                var oldValue = $button.parent().find("input").val();
+                if ($button.text() == "+") {
+                    if (sell_limit>oldValue) {
+                        var newVal = parseFloat(oldValue) + 1;
+                    } else {
+                        newVal = oldValue;
+                    }
+                } else {
+                    if (oldValue > 0) {
+                        var newVal = parseFloat(oldValue) - 1;
+                    } else {
+                        newVal = 0;
+                    }
+                }
+                $button.parent().find("input").val(newVal);
             });
         });
 

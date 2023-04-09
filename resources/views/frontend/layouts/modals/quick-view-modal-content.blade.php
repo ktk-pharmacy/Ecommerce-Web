@@ -4,6 +4,9 @@
       <!-- <i class="fas fa-times"></i> -->
    </button>
 </div>
+@php
+    $sell_limit_related_product = $product->sell_limit - productCountInCart($product);
+@endphp
 <div class="modal-body">
    <div class="ltn__quick-view-modal-inner">
       <div class="modal-product-item">
@@ -49,21 +52,23 @@
                   <div class="ltn__product-details-menu-2 {{ $product->stock == 0 ? "d-none" : '' }}">
                      <ul>
                         <li>
-                           <div class="cart-plus-minus">
-                              <input type="text" value="1" name="qtybutton" class="cart-plus-minus-box">
+                           <div class="cart-plus-minus-2">
+                              <input type="text" value="1" name="qtybutton" class="cart-plus-minus-box-2">
                            </div>
                         </li>
-                        <li>
-                           <a
-                              href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.route('frontend.products.detail', $product->slug) }}"
-                              class="theme-btn-1 btn btn-effect-1"
-                              title="Add to Cart"
-                              onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                              data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $product->id) }}">
-                              <i class="fas fa-shopping-cart"></i>
-                              <span>ADD TO CART</span>
-                           </a>
-                        </li>
+                        @if (productCountInCart($product) !== $product->sell_limit)
+                            <li>
+                                <a
+                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.route('frontend.products.detail', $product->slug) }}"
+                                class="theme-btn-1 btn btn-effect-1"
+                                title="Add to Cart"
+                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $product->id) }}">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>ADD TO CART</span>
+                                </a>
+                            </li>
+                        @endif
                      </ul>
                   </div>
                   <div class="ltn__product-details-menu-3">
@@ -110,3 +115,29 @@
       </div>
    </div>
 </div>
+<script>
+    $(document).ready(function () {
+        var sell_limit_related_product = Number("{{ $sell_limit_related_product }}");
+        $(".cart-plus-minus-2").prepend('<div class="dec qtybtn">-</div>');
+        $(".cart-plus-minus-2").append('<div class="inc qtybtn">+</div>');
+        $(".qtybtn").on("click", function () {
+                var $button = $(this);
+                var oldValue = $button.parent().find("input").val();
+                if ($button.text() == "+") {
+                    if (sell_limit_related_product>oldValue) {
+                        var newVal = parseFloat(oldValue) + 1;
+                    } else {
+                        newVal = oldValue;
+                    }
+                } else {
+                    if (oldValue > 0) {
+                        var newVal = parseFloat(oldValue) - 1;
+                    } else {
+                        newVal = 0;
+                    }
+                }
+                $button.parent().find("input").val(newVal);
+            });
+    });
+
+</script>
