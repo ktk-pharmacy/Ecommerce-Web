@@ -194,7 +194,8 @@
                <div class="ltn__shop-details-tab-menu">
                   <div class="nav">
                      <a class="active show" data-bs-toggle="tab" href="#liton_tab_details_1_1">Description</a>
-                     {{-- <a data-bs-toggle="tab" href="#liton_tab_details_1_2" class="">Reviews</a> --}}
+                     <a data-bs-toggle="tab" href="#liton_tab_details_1_2" class="">Product Details</a>
+                     <a data-bs-toggle="tab" href="#liton_tab_details_1_3" class="">Other Information</a>
                   </div>
                </div>
                <div class="tab-content">
@@ -202,6 +203,20 @@
                      <div class="ltn__shop-details-tab-content-inner">
                         <h4 class="title-2">{{ $product->name }}</h4>
                         {!! $product->description !!}
+
+                     </div>
+                  </div>
+                  <div class="tab-pane fade active show" id="liton_tab_details_1_2">
+                     <div class="ltn__shop-details-tab-content-inner">
+                        {{--  <h4 class="title-2">{{ $product->name }}</h4>  --}}
+                        {!! $product->detail !!}
+
+                     </div>
+                  </div>
+                  <div class="tab-pane fade active show" id="liton_tab_details_1_3">
+                     <div class="ltn__shop-details-tab-content-inner">
+                        {{--  <h4 class="title-2">{{ $product->name }}</h4>  --}}
+                        {!! $product->other_information !!}
 
                      </div>
                   </div>
