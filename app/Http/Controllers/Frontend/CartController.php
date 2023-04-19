@@ -27,11 +27,12 @@ class CartController extends Controller
                 'customer_id' => $customerId,
                 'product_id' => $product_id
             ])->first();
-            if ($value['quantity']>$product->sell_limit) {
+            if ($product->sell_limit > $value['quantity'] || $product->sell_limit == Null) {
+                $cart_item->quantity = $value['quantity'];
+                $cart_item->save();
+            } else {
                 return redirect()->back()->with('error', "$product->name Quantity is over limitting!");
             }
-            $cart_item->quantity = $value['quantity'];
-            $cart_item->save();
         }
         return redirect()->back()->with('success', 'Successfully updated!');
     }

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             $table->longText('detail')->nullable()->after('description');
             $table->longText('other_information')->nullable()->after('detail');
-            $table->unsignedBigInteger('sell_limit')->default(2)->after('sold_count');
+            $table->unsignedBigInteger('sell_limit')->nullable()->after('sold_count');
         });
     }
 
