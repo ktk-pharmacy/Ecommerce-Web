@@ -8,7 +8,7 @@
         if ($product->sell_limit == null) {
             $sell_limit = 'unlimit';
         } else {
-            $sell_limit = $product->sell_limit - productCountInCart($product);
+            $sell_limit = $product->sell_limit - productCountInCart($product) - orderedCountPdt($product);
         }
     @endphp
     <!-- SHOP DETAILS AREA START -->
@@ -118,7 +118,7 @@
                                             @endif
                                         </ul>
                                     </div>
-                                    <div class="ltn__product-details-menu-2 {{ $product->stock == 0 ? 'd-none' : '' }} ">
+                                    <div class="ltn__product-details-menu-2 {{ $product->stock == 0 ? 'd-none' : '' }} " >
                                         <ul class="">
                                             <li>
                                                 <div class="cart-plus-minus">
@@ -126,17 +126,18 @@
                                                         class="cart-plus-minus-box">
                                                 </div>
                                             </li>
-                                            @if (productCountInCart($product) !== $product->sell_limit)
+                                            {{-- @if (productCountInCart($product) !== $product->sell_limit) --}}
                                                 <li>
                                                     <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
                                                         class="theme-btn-1 btn btn-effect-1" title="Add to Cart"
                                                         onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                        data-type="main"
                                                         data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $product->id) }}">
                                                         <i class="fas fa-shopping-cart"></i>
                                                         <span>ADD TO CART</span>
                                                     </a>
                                                 </li>
-                                            @endif
+                                            {{-- @endif --}}
 
                                         </ul>
                                     </div>
@@ -522,6 +523,7 @@
             /* --------------------------------------------------------
                 Quantity plus minus
             -------------------------------------------------------- */
+            let product_limit = "{{ $product->sell_limit }}";
             let sell_limit = "{{ $sell_limit }}";
             if (sell_limit !== "unlimit") {
                 sell_limit = Number("{{ $sell_limit }}");
@@ -542,7 +544,7 @@
                             newVal = oldValue;
                             Toast.fire({
                                 icon: 'error',
-                                title: `This item can be order ${sell_limit} daily`
+                                title: `This item can be order ${product_limit} daily`
                             })
                         }
                     }

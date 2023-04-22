@@ -1,7 +1,11 @@
 function addToCart(e) {
     let addToCartURL = e.getAttribute("data-add-to-cart-url");
+    let type = e.getAttribute("data-type");
     let getCartItemUrl = $("#get-cart-items-url").val();
     let quantity = $("#cart-quantity").val();
+    if (type == 'sub') {
+        quantity = $('#cart-quantity-2').val();
+    }
 
     $.ajax({
         type: "POST",
@@ -33,7 +37,7 @@ function addToCart(e) {
             } else if (data.message == "fail") {
                 Toast.fire({
                     icon: "error",
-                    title: "Quantity is over limitting!",
+                    title: `This item can be order ${data.sell_limit} daily!`,
                 });
             }
             else {

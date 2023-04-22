@@ -1,9 +1,11 @@
 <?php
 
+use Carbon\Carbon;
 use App\Model\Cart;
-use App\Model\CategoryGroup;
-use App\Model\Customer;
 use App\Model\Order;
+use App\Model\Customer;
+use App\Model\CategoryGroup;
+use Illuminate\Support\Facades\DB;
 
 function splitDateRange($date)
 {
@@ -218,5 +220,17 @@ function productCountInCart($product){
     }
     return 0;
 
+}
+
+function orderedCountPdt($product){
+    $customerId = session('customerId');
+    $ordered_pdt = DB::table('product_user')->where([
+        'user_id' => $customerId,
+        'product_id' => $product->id
+    ])->first();
+    if ($ordered_pdt && $ordered_pdt->ordered && Carbon::now()->startOfDay() <= $ordered_pdt->exp_date) {
+        return $ordered_pdt->quantity;
+    }
+    return 0;
 }
 

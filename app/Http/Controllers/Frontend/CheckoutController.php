@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\DeliveryCharge;
-use App\Helpers\CustomerAuth;
-use App\Http\Controllers\Controller;
 use App\Model\Cart;
+use App\Model\Order;
+use App\DeliveryCharge;
 use App\Model\Customer;
-use App\Model\DeliveryInformation;
 use App\Model\Location;
 use App\Model\Logistic;
-use App\Model\Order;
 use Illuminate\Http\Request;
+use App\Helpers\CustomerAuth;
+use App\Model\DeliveryInformation;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class CheckoutController extends Controller
 {
@@ -88,6 +89,18 @@ class CheckoutController extends Controller
                         'discount_total' => $discount_total,
                         'order_product_total' => $order_product_total,
                     ];
+
+                    $each_limit_pdt = DB::table('product_user')->where([
+                        'user_id'=> session('customerId'),
+                        'product_id'=> $cart->product_id
+                    ])->first();
+                    if ($each_limit_pdt) {
+                        DB::table('product_user')
+                        ->where('id',$each_limit_pdt->id)
+                        ->update([
+                            'ordered'=>true
+                        ]);
+                    }
 
                     $order_total += $order_product_total;
                     $cart->product()->decrement('stock', $cart->quantity);

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->integer('quantity');
-            $table->timestamp('exp_date');
-            $table->timestamps();
+            $table->date('exp_date');
+            $table->boolean('ordered')->default(0)->comment('1 is Ordered, 0 is Unorder');
         });
     }
 
