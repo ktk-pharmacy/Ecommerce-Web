@@ -39,7 +39,7 @@ class CartController extends Controller
                 if ($ordered_pdt->ordered) {
                     $qty = $ordered_pdt->quantity + $value['quantity'];
                 }
-                if (Carbon::now()->startOfDay() > $ordered_pdt->exp_date) {
+                if (Carbon::now()->startOfDay()->toDateString() > $ordered_pdt->exp_date) {
                     DB::table('product_user')->where($arr)->delete();
                     if ($product->sell_limit >= $value['quantity']) {
                         $cart_item->quantity = $value['quantity'];
@@ -101,7 +101,7 @@ class CartController extends Controller
                     if ($ordered_pdt->ordered) {
                         $all_total_qty = $existCartProduct->quantity + $ordered_pdt->quantity + $request->quantity;
                     }
-                    if (Carbon::now()->startOfDay() > $ordered_pdt->exp_date) {
+                    if (Carbon::now()->startOfDay()->toDateString() > $ordered_pdt->exp_date) {
                         DB::table('product_user')->where($arr)->delete();
                         $total_qty = $existCartProduct->quantity + $request->quantity;
                         if ($product->sell_limit == Null || $total_qty <= $product->sell_limit) {
@@ -142,8 +142,9 @@ class CartController extends Controller
                 }
             } else {
                 if ($ordered_pdt) {
+
                     $total_qty = $ordered_pdt->quantity + $request->quantity;
-                    if (Carbon::now()->startOfDay() > $ordered_pdt->exp_date) {
+                    if (Carbon::now()->startOfDay()->toDateString() > $ordered_pdt->exp_date) {
                         DB::table('product_user')->where($arr)->delete();
                         $this->createCartAndProductUser($customerId, $product->id, $request->quantity, $product);
                     } elseif ($total_qty <= $product->sell_limit) {
@@ -160,6 +161,7 @@ class CartController extends Controller
                         return response()->json($limit_err, 200);
                     }
                 } else {
+                    logger("Leeee");
                     $this->createCartAndProductUser($customerId, $product->id, $request->quantity, $product);
                 }
             }

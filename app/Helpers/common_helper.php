@@ -228,7 +228,7 @@ function orderedCountPdt($product){
         'user_id' => $customerId,
         'product_id' => $product->id
     ])->first();
-    if ($ordered_pdt && $ordered_pdt->ordered && Carbon::now()->startOfDay() <= $ordered_pdt->exp_date) {
+    if ($ordered_pdt && $ordered_pdt->ordered && Carbon::now()->startOfDay()->toDateString() <= $ordered_pdt->exp_date) {
         return $ordered_pdt->quantity;
     }
     return 0;

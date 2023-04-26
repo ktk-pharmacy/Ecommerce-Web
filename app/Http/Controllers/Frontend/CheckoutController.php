@@ -95,7 +95,7 @@ class CheckoutController extends Controller
                         'product_id'=> $cart->product_id
                     ])->first();
                     if ($each_limit_pdt) {
-                        DB::table('product_user')
+                        $res = DB::table('product_user')
                         ->where('id',$each_limit_pdt->id)
                         ->update([
                             'ordered'=>true
