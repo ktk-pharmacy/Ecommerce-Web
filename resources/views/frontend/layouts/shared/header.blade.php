@@ -103,8 +103,8 @@
           <div class="row">
              <div class="col">
                 <div class="site-logo">
-                   <!-- <a href="{{route('frontend.home')}}"><img src="https://dummyimage.com/159x38/ffffff/000000.png&text=528+Shop+Logo" alt="Logo"></a> -->
-                   <a href="{{route('frontend.home')}}"><img src="{{asset('assets/theme/img/orginal2.png')}}" alt="Logo"></a>
+                   <!-- <a href="{{route('frontend.home')}}"><img src="https://dummyimage.com/159x38/ffffff/000000.png&text=SayAid" alt="Logo"></a> -->
+                   <a href="{{route('frontend.home')}}"><img width="100" height="100" src="{{asset('assets/theme/img/sayaid1.png')}}" alt="Logo"></a>
                 </div>
              </div>
              <div class="col header-contact-serarch-column d-none d-xl-block">

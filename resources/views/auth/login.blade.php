@@ -15,19 +15,19 @@
                         <div class="card bg-pattern">
 
                             <div class="card-body p-4">
-                                
+
                                 <div class="text-center m-auto">
                                     <div class="auth-logo">
                                         {{-- <h4>{{ config('app.name') }}</h4> --}}
                                         <a href="#" class="logo logo-dark text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('assets/theme/img/orginal2.png')}}" alt="" height="55">
+                                                <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="" height="55">
                                             </span>
                                         </a>
-                    
+
                                         <a href="#" class="logo logo-light text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('assets/theme/img/orginal2.png')}}" alt="" height="55">
+                                                <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="" height="55">
                                             </span>
                                         </a>
                                     </div>
@@ -39,7 +39,7 @@
 
                                     <div class="form-group mb-3">
                                         <label for="emailaddress">Email address</label>
-                                        <input class="form-control  @if($errors->has('email')) is-invalid @endif" name="email" type="email" 
+                                        <input class="form-control  @if($errors->has('email')) is-invalid @endif" name="email" type="email"
                                             id="emailaddress" required=""
                                             value="{{ old('email')}}"
                                             placeholder="Enter your email" autofocus/>
@@ -126,10 +126,10 @@
 
 
         <footer class="footer footer-alt">
-            <script>document.write(new Date().getFullYear())</script> &copy; {{ config('app.name') }} 
+            <script>document.write(new Date().getFullYear())</script> &copy; {{ config('app.name') }}
         </footer>
 
         @include('admin.layouts.shared.footer-script')
-        
+
     </body>
 </html>

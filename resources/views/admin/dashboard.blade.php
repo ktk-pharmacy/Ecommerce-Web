@@ -202,7 +202,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 col-xl-12">
-            <h4 class="page-title mt-3" style="text-align: center;">Myan San Admin Dashboard</h4>
+            <h4 class="page-title mt-3" style="text-align: center;">SayAid Admin Dashboard</h4>
         </div>
 
     </div>

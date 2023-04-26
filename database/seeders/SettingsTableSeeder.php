@@ -11,15 +11,15 @@ class SettingsTableSeeder extends Seeder
     protected $settings = [
         [
             'key'                       =>  'site_name',
-            'value'                     =>  'Myan San',
+            'value'                     =>  'SayAid',
         ],
         [
             'key'                       =>  'site_title',
-            'value'                     =>  'Myan San',
+            'value'                     =>  'SayAid',
         ],
         [
             'key'                       =>  'default_email',
-            'value'                     =>  'myanmsan.pm@gmail.com',
+            'value'                     =>  'sayaid.info@gmail.com',
         ],
         [
             'key'                       =>  'default_phone_number',
@@ -43,7 +43,7 @@ class SettingsTableSeeder extends Seeder
         ],
         [
             'key'                       =>  'header_text',
-            'value'                     =>  'မြန်ဆန်မှ လူကြီးမင်းတို အတွက် ဆေးနှင့် ဆေးပစ္စည်းများ၊ လူသုံးကုန်ပစ္စည်း များကို တစ်နေရာတည်းတွင် မျှတသော ဈေးနှုန်းများဖြင့် မန္တလေး မြိုတွင်း ရုံးချိန်အတွင်းမှာ ယူသော ပစ္စည်းများကို ၂၄နာရီ အတွင်း ပိုဆောင်ပေးမည် ဖြစ်ပါသည်။',
+            'value'                     =>  'ဆေးအိတ်မှ လူကြီးမင်းတို အတွက် ဆေးနှင့် ဆေးပစ္စည်းများ၊ လူသုံးကုန်ပစ္စည်း များကို တစ်နေရာတည်းတွင် မျှတသော ဈေးနှုန်းများဖြင့် မန္တလေး မြိုတွင်း ရုံးချိန်အတွင်းမှာ ယူသော ပစ္စည်းများကို ၂၄နာရီ အတွင်း ပိုဆောင်ပေးမည် ဖြစ်ပါသည်။',
         ],
         [
             'key'                       =>  'footer_copyright_text',

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', '528 - Health, Beauty and Wellness'),
+    'name' => env('APP_NAME', 'SayAid'),
 
     /*
     |--------------------------------------------------------------------------

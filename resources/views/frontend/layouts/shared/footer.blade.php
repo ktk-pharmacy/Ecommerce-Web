@@ -6,10 +6,10 @@
                <div class="footer-widget footer-about-widget">
                   <div class="footer-logo">
                      <div class="site-logo">
-                        <img src="{{asset('assets/theme/img/orginal2.png')}}" alt="Logo">
+                        <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="Logo">
                      </div>
                   </div>
-                  <p>528’s, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range. Now we planned to move forward as new step by the name MYANSAN for e-business in the future. We will sell our product with fair and reasonable price depends on market demand. We aim that people can easily buy medicine, pharmacy and consumer products from this web and app..</p>
+                  <p>SayAid, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range. Now we planned to move forward as new step by the name SayAid for e-business in the future. We will sell our product with fair and reasonable price depends on market demand. We aim that people can easily buy medicine, pharmacy and consumer products from this web and app..</p>
                   <div class="footer-address">
                      <ul>
                         <li>
@@ -148,7 +148,7 @@
          <div class="row">
             <div class="col-md-6 col-12">
                <div class="ltn__copyright-design clearfix">
-                  <p>All Rights Reserved @ MyanSann <span class="current-year"></span></p>
+                  <p>All Rights Reserved @ SayAid <span class="current-year"></span></p>
                </div>
             </div>
             <div class="col-md-6 col-12 align-self-center">
