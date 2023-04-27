@@ -58,3 +58,7 @@ Route::group(['prefix' => 'v1','namespace' => 'Api\v1','middleware' => ['auth:cu
 
     Route::get('logistics', 'LogisticController@index');
 });
+
+Route::group(['prefix' => 'v2','namespace' => 'Api\v2','middleware' => ['auth:customer']], function () {
+    Route::post('carts/{product_id}', 'CartController@store');
+});

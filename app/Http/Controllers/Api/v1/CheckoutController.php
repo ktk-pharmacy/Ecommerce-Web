@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
 use App\Model\Cart;
-use App\Model\Coupon;
-use App\Model\Customer;
-use App\Model\DeliveryInformation;
 use App\Model\Order;
+use App\Model\Coupon;
 use App\Model\Product;
-use App\Traits\ValidityCoupon;
+use App\Model\Customer;
 use Illuminate\Http\Request;
+use App\Traits\ValidityCoupon;
+use App\Model\DeliveryInformation;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class CheckoutController extends Controller
 {
@@ -49,7 +50,7 @@ class CheckoutController extends Controller
                     $discount_amount = $cart->product->discount ? $cart->product->discount_amount : null;
                     $discount_type = $cart->product->discount ? $cart->product->discount_type : null;
                     $discount_total = $cart->product->discount ? getDiscount($sale_price, $discount_amount, $discount_type) * $cart->quantity : null;
-                    
+
                     $order_products[] = [
                         'product_id' => $cart->product_id,
                         'price' => $cart->product->price,
@@ -60,6 +61,18 @@ class CheckoutController extends Controller
                         'discount_total' => $discount_total,
                         'order_product_total' => $order_product_total,
                     ];
+
+                    $each_limit_pdt = DB::table('product_user')->where([
+                        'user_id'=> session('customerId'),
+                        'product_id'=> $cart->product_id
+                    ])->first();
+                    if ($each_limit_pdt) {
+                        $res = DB::table('product_user')
+                        ->where('id',$each_limit_pdt->id)
+                        ->update([
+                            'ordered'=>true
+                        ]);
+                    }
 
                     $cart_ids[] = $cart->id;
                     $product_ids[] = $cart->product_id;
@@ -93,7 +106,7 @@ class CheckoutController extends Controller
                 }
                 $requestData['coupon_id'] = $coupon->getData()->data->id;
             }
-            
+
             $order = Order::create($requestData);
             $order->products()->createMany($order_products);
 
@@ -113,7 +126,7 @@ class CheckoutController extends Controller
                 $cart->product->decrement('stock', $qty);
             }
             Cart::whereIn('id', $cart_ids)->delete();
-            
+
             return response()->success('Success!', 200);
         } catch (\Throwable $th) {
             return response()->error($th->getMessage(), 404);

@@ -95,15 +95,11 @@ class CartController extends Controller
             ])->first();
 
             if ($existCartProduct) {
+                $total_qty = $existCartProduct->quantity + $request->quantity;
                 if ($ordered_pdt) {
-                    $total_qty = $existCartProduct->quantity + $request->quantity;
-                    $all_total_qty = $total_qty;
-                    if ($ordered_pdt->ordered) {
-                        $all_total_qty = $existCartProduct->quantity + $ordered_pdt->quantity + $request->quantity;
-                    }
+                    $ordered_pdt->ordered ? $all_total_qty = $existCartProduct->quantity + $ordered_pdt->quantity + $request->quantity:$all_total_qty = $total_qty;
                     if (Carbon::now()->startOfDay()->toDateString() > $ordered_pdt->exp_date) {
                         DB::table('product_user')->where($arr)->delete();
-                        $total_qty = $existCartProduct->quantity + $request->quantity;
                         if ($product->sell_limit == Null || $total_qty <= $product->sell_limit) {
                             Cart::findOrFail($existCartProduct->id)
                                 ->update([
@@ -130,7 +126,6 @@ class CartController extends Controller
                         return response()->json($limit_err, 200);
                     }
                 } else {
-                    $total_qty = $existCartProduct->quantity + $request->quantity;
                     if ($product->sell_limit == Null || $total_qty <= $product->sell_limit) {
                         Cart::findOrFail($existCartProduct->id)
                             ->update([
@@ -161,7 +156,6 @@ class CartController extends Controller
                         return response()->json($limit_err, 200);
                     }
                 } else {
-                    logger("Leeee");
                     $this->createCartAndProductUser($customerId, $product->id, $request->quantity, $product);
                 }
             }

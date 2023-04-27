@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api\v1;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\CartCollection;
 use App\Model\Cart;
 use App\Model\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\CartCollection;
 
 class CartController extends Controller
 {
@@ -24,6 +25,11 @@ class CartController extends Controller
         ]);
 
         $customer = $request->user();
+        // $arr = [
+        //     'user_id'=>$customer->id,
+        //     'product_id'=>$product_id
+        // ];
+        // $ordered_pdt = DB::table('product_user')->where($arr)->first();
 
         try {
             if ($request->add_to_cart) {
