@@ -33,13 +33,13 @@
                   <div class="auth-logo">
                      <div class="logo logo-dark">
                         <span class="logo-lg">
-                           <img src="{{ asset('assets/theme/img/orginal2.png') }}" alt="" height="44">
+                           <img src="{{ asset('assets/theme/img/sayaid1.png') }}" alt="" height="44">
                         </span>
                      </div>
 
                      <div class="logo logo-light">
                         <span class="logo-lg">
-                           <img src="{{ asset('assets/theme/img/orginal2.png') }}" alt="" height="44">
+                           <img src="{{ asset('assets/theme/img/sayaid1.png') }}" alt="" height="44">
                         </span>
                      </div>
                   </div>
