@@ -108,15 +108,10 @@ class CartController extends Controller
                 'product_id' => $product_id
             ])->firstOrFail();
 
-            $existCartProduct = Cart::where([
-                'customer_id' => $customerId,
-                'product_id' => $product->id
-            ])->first();
-
             if ($cartProduct->quantity > $request->quantity && $cartProduct->quantity != 1) {
                 $cartProduct->decrement('quantity', $request->quantity);
-                if ($existCartProduct) {
-                    $qty = $existCartProduct->quantity - $request->quantity;
+                if ($ordered_pdt) {
+                    $qty = $ordered_pdt->quantity - $request->quantity;
                     DB::table('product_user')
                         ->where('id', $ordered_pdt->id)
                         ->update([
@@ -125,7 +120,7 @@ class CartController extends Controller
                 }
             } else {
                 $cartProduct->delete();
-                if ($existCartProduct) {
+                if ($ordered_pdt) {
                     DB::table('product_user')
                         ->where('id', $ordered_pdt->id)
                         ->delete();
