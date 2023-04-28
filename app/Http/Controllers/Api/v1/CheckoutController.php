@@ -63,7 +63,7 @@ class CheckoutController extends Controller
                     ];
 
                     $each_limit_pdt = DB::table('product_user')->where([
-                        'user_id'=> session('customerId'),
+                        'user_id'=> $customer_id,
                         'product_id'=> $cart->product_id
                     ])->first();
                     if ($each_limit_pdt) {
