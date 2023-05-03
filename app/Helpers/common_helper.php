@@ -154,7 +154,11 @@ function getMenuCategories()
 
 function getCartDetails()
 {
-    $customerId = session('customerId');
+    return getCartDetailsMain(session('customerId'));
+}
+
+function getCartDetailsMain($customerId)
+{
     $sub_total = 0;
     $data['customer_id'] = $customerId;
     $data['total_quantity'] = 0;
