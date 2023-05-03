@@ -14,6 +14,11 @@ class CartCollection extends JsonResource
      */
     public function toArray($request)
     {
+        if ($this->product?->sell_limit) {
+            $sell_limit = $this->product?->sell_limit - $this->quantity - orderedCountPdtApi($this->customer_id,$this->product_id??$this->product?->id);
+        } else {
+            $sell_limit = "unlimit";
+        }
         return [
             "product_id" => $this->product?->id,
             "name" => $this->product?->name,
@@ -23,6 +28,7 @@ class CartCollection extends JsonResource
             "quantity" => $this->quantity,
             "net_weight" => (float)$this->product?->net_weight,
             "gross_weight" => (float)$this->product?->gross_weight,
+            "sell_limit" => $sell_limit
         ];
     }
 }

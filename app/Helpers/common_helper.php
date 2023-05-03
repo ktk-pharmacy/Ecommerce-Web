@@ -224,9 +224,19 @@ function productCountInCart($product){
 
 function orderedCountPdt($product){
     $customerId = session('customerId');
+    return orderedCountPdtMain($customerId,$product->id);
+}
+
+function orderedCountPdtApi($customer_id,$product_id)
+{
+    return orderedCountPdtMain($customer_id,$product_id);
+}
+
+function orderedCountPdtMain($customerId,$product_id)
+{
     $ordered_pdt = DB::table('product_user')->where([
         'user_id' => $customerId,
-        'product_id' => $product->id
+        'product_id' => $product_id
     ])->first();
     if ($ordered_pdt && $ordered_pdt->ordered && Carbon::now()->startOfDay()->toDateString() <= $ordered_pdt->exp_date) {
         return $ordered_pdt->quantity;
