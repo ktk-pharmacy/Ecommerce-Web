@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master', ['title' => 'Request-Otp'])
+@extends('frontend.layouts.master', ['title' => 'Register'])
 
 @section('css')
 <style>
@@ -17,7 +17,7 @@
       <div class="row">
          <div class="col-lg-12">
             <div class="section-title-area text-center">
-               <h1 class="section-title">OTP Request</h1>
+               <h1 class="section-title">Forget <br>Password</h1>
             </div>
          </div>
       </div>
@@ -36,23 +36,19 @@
             </div>
             @endif --}}
             <div class="account-login-inner">
-               <form action="{{ route('frontend.requestOtp') }}" method="POST" class="customer-otp-form ltn__form-box contact-form-box">
+               <form action="{{ route('frontend.resetPassword') }}" method="POST" class="customer-register-form ltn__form-box contact-form-box">
                   @csrf
-                  <input type="text" name="username" placeholder="Email or Phone*" value="{{ old('username') }}" required>
-                  @if ($for)
-                      <input type="hidden" name="for" value="1">
-                  @endif
+                  <input type="hidden" name="username" value="{{ $otp->username }}">
+                  <input type="password" name="new_password" id="password" placeholder="Password*" required>
+                  <input type="password" name="confirm_new_password" placeholder="Confirm New Password*" data-parsley-equalto="#password" required>
                   <div class="btn-wrapper">
-                     <button class="theme-btn-1 btn reverse-color btn-block" type="submit">SEND OTP</button>
+                     <button class="theme-btn-1 btn reverse-color btn-block" type="submit">Next</button>
                   </div>
                </form>
-               <div class="by-agree text-center">
+               {{-- <div class="by-agree text-center">
                   <p>By creating an account, you agree to our:</p>
                   <p><a href="#">TERMS OF CONDITIONS &nbsp; &nbsp; | &nbsp; &nbsp; PRIVACY POLICY</a></p>
-                  <div class="go-to-btn mt-50">
-                     <a href="{{ route('frontend.loginForm') }}">ALREADY HAVE AN ACCOUNT ?</a>
-                  </div>
-               </div>
+               </div> --}}
             </div>
          </div>
       </div>
@@ -65,6 +61,6 @@
 <script src="{{asset('assets/libs/parsleyjs/parsleyjs.min.js')}}"></script>
 
 <script>
-   $('.customer-otp-form').parsley();
+   $('.customer-register-form').parsley();
 </script>
 @endsection

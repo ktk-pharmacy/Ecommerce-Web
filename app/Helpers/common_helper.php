@@ -1,5 +1,6 @@
 <?php
 
+use App\Model\Otp;
 use Carbon\Carbon;
 use App\Model\Cart;
 use App\Model\Order;
@@ -248,3 +249,7 @@ function orderedCountPdtMain($customerId,$product_id)
     return 0;
 }
 
+function otpData($id)
+{
+    return  Otp::findOrFail($id);
+}

@@ -21,26 +21,18 @@ class AuthController extends Controller
 {
     use SendSMSTrait;
 
-    public function registerForm(Otp $id)
-    {
-        return view('frontend.auth.register',['otp'=>$id]);
-    }
-
     public function loginForm()
     {
         return view('frontend.auth.login');
     }
 
-    public function requestOTPForm()
+    public function requestOTPForm(Request $request)
     {
-        return view('frontend.Otp.request-otp');
+        $for = $request->for;
+        return view('frontend.Otp.request-otp',compact('for'));
     }
 
-    public function verifyOTPForm($id)
-    {
-        $data = Otp::findOrFail($id);
-        return view('frontend.Otp.verify-otp',compact('data'));
-    }
+
 
     public function register(Request $request)
     {
@@ -103,10 +95,22 @@ class AuthController extends Controller
     }
 
     public function requestOTP(Request $request){
+        $for = $request->for;
         $rules = [
             'username' => 'required||unique:customers,username',
         ];
+        if ($for) {
+            $rules = [
+                'username' => 'required',
+            ];
+        }
         $request->validate($rules);
+
+        $user = Customer::where('username',$request->username)->first();
+
+        if (!$user && $for) {
+            return redirect()->back()->with('error','This username is not registered!');
+        }
 
         $data['username'] = $request->username;
         $data['code'] = rand(1000, 9999);
@@ -129,7 +133,8 @@ class AuthController extends Controller
             'username'=>$request->username,
             'code'=>$data['code']
         ]);
-        return to_route('frontend.verifyOtpForm',$Otp->id);
+        $otp_id = $Otp->id;
+        return view('frontend.Otp.verify-otp',compact('for','otp_id'));
     }
 
     public function verifyOTP(Request $request){
@@ -142,6 +147,23 @@ class AuthController extends Controller
             'status' => false
         ]);
 
-        return to_route('frontend.registerForm',$Otp->id);
+        if ($request->for) {
+            return view('frontend.auth.reset-password',['otp'=>$Otp]);
+        }
+        return view('frontend.auth.register',['otp'=>$Otp]);
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'new_password' => 'required|min:6',
+            'confirm_new_password' => 'required|same:new_password'
+        ]);
+
+        Customer::where('username',$request->username)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        return to_route('frontend.login')->with('success','Password successfully changed!');
     }
 }

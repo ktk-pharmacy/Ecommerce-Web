@@ -31,7 +31,7 @@
                      <button class="theme-btn-1 btn btn-block" type="submit">SIGN IN</button>
                   </div>
                   <div class="go-to-btn mt-20">
-                     <a href="#"><small>FORGOTTEN YOUR PASSWORD?</small></a>
+                     <a href="{{ route('frontend.requestOtpForm') }}?for=psw"><small>FORGOTTEN YOUR PASSWORD?</small></a>
                   </div>
                </form>
             </div>

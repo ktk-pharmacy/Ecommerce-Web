@@ -113,15 +113,15 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::get('/forget-session','HomeController@forgetSession');
 
     //Auth
-    Route::get('/register/{id}', 'AuthController@registerForm')->name('registerForm')->middleware('customer_is_not_authenticate');
     Route::post('/register', 'AuthController@register')->name('register');
     Route::get('/login', 'AuthController@loginForm')->name('loginForm')->middleware('customer_is_not_authenticate');
     Route::post('/login', 'AuthController@login')->name('login');
 
     Route::get('/request-otp', 'AuthController@requestOTPForm')->name('requestOtpForm')->middleware('customer_is_not_authenticate');
     Route::post('/request-otp', 'AuthController@requestOTP')->name('requestOtp');
-    Route::get('/verify-otp/{id}', 'AuthController@verifyOTPForm')->name('verifyOtpForm')->middleware('customer_is_not_authenticate');
+    Route::get('/verify-otp', 'AuthController@verifyOTPForm')->name('verifyOtpForm')->middleware('customer_is_not_authenticate');
     Route::post('/verify-otp', 'AuthController@verifyOTP')->name('verifyOtp');
+    Route::post('/reset-password', 'AuthController@resetPassword')->name('resetPassword');
 
     //Product
     Route::get('/products/{slug}/detail', 'ProductController@detail')->name('products.detail');
