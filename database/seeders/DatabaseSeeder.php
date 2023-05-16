@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(CreateDefaultBlogCategorySeeder::class);
         // $this->call(AddSliderSidebarSeeder::class);
         // $this->call(SettingsTableSeeder::class);
-        $this->call(AdditionPermissionSeeder::class);
+        // $this->call(AdditionPermissionSeeder::class);
+        $this->call(BonousSeeder::class);
     }
 }

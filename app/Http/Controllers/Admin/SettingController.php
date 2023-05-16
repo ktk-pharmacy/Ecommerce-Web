@@ -24,6 +24,24 @@ class SettingController extends Controller
         if ($request->hasFile('frontend_campaing')) {
             $keys['frontend_campaing'] = $this->fileStorage($request,'frontend_campaing');
         }
+        if ($request->hasFile('bonous_1_img')) {
+            $keys['bonous_1_img'] = $this->fileStorage($request,'bonous_1_img');
+        }
+        if ($request->hasFile('bonous_2_img')) {
+            $keys['bonous_2_img'] = $this->fileStorage($request,'bonous_2_img');
+        }
+        if ($request->hasFile('bonous_3_img')) {
+            $keys['bonous_3_img'] = $this->fileStorage($request,'bonous_3_img');
+        }
+        if ($request->hasFile('bonous_4_img')) {
+            $keys['bonous_4_img'] = $this->fileStorage($request,'bonous_4_img');
+        }
+        if ($request->hasFile('bonous_5_img')) {
+            $keys['bonous_5_img'] = $this->fileStorage($request,'bonous_5_img');
+        }
+        if ($request->hasFile('bonous_6_img')) {
+            $keys['bonous_6_img'] = $this->fileStorage($request,'bonous_6_img');
+        }
         foreach ($keys as $key => $value) {
             Setting::set($key, $value);
         }

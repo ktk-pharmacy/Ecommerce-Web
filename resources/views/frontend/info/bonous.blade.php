@@ -17,12 +17,11 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="fas fa-microscope"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_1_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Medical Accessories</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_1_title')??'Title 1' }}</a></h3>
+                            <p>{{ config('settings.bonous_1_txt')??'Txt 1' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -30,12 +29,11 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-stethoscope"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_2_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Covid - 19 Treatment Center</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_2_title')??'Title 2' }}</a></h3>
+                            <p>{{ config('settings.bonous_2_txt')??'Txt 2' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -43,12 +41,11 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-hospital"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_3_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">24/7 Hours Emergency Care</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_3_title')??'Title 3' }}</a></h3>
+                            <p>{{ config('settings.bonous_3_txt')??'Txt 3' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -56,12 +53,11 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-operator"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_4_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Online Free Consultations</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_4_title')??'Title 4' }}</a></h3>
+                            <p>{{ config('settings.bonous_4_txt')??'Txt 4' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -69,12 +65,11 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-mortarboard"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_5_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Qualified Products</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_5_title')??'Title 5' }}</a></h3>
+                            <p>{{ config('settings.bonous_5_txt')??'Txt 5' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
@@ -82,16 +77,16 @@
                 <div class="col-lg-4 col-sm-6 col-12">
                     <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
                         <div class="ltn__feature-icon">
-                            <span><i class="flaticon-secure"></i></span>
-                            <!-- <img src="img/icons/icon-img/21.png" alt="#"> -->
+                            <img width="90" src="{{ asset(config('settings.bonous_6_img'))??'assets/theme/img/sayaid1.png' }}" alt="#">
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="service-details.html">Self Protection Kit</a></h3>
-                            <p>over 1 million+ homes for sale available on the website, we can match you with a house you will want to call home.</p>
+                            <h3><a href="service-details.html">{{ config('settings.bonous_6_title')??'Title 6' }}</a></h3>
+                            <p>{{ config('settings.bonous_6_txt')??'Txt 6' }}</p>
                             <!-- <a class="ltn__service-btn" href="service-details.html">Find A Home <i class="flaticon-right-arrow"></i></a> -->
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
