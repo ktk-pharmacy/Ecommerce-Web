@@ -156,7 +156,7 @@ class AuthController extends Controller
     public function resetPassword(Request $request)
     {
         $request->validate([
-            'new_password' => 'required|min:6',
+            'new_password' => 'required',
             'confirm_new_password' => 'required|same:new_password'
         ]);
 

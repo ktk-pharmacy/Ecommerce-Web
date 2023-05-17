@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         $rules = [
             'username' => 'required',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string',
         ];
 
         if (filter_var($request->username, FILTER_VALIDATE_EMAIL)) {
@@ -60,7 +60,7 @@ class AuthController extends Controller
     {
         $rules = [
             'name' => 'required',
-            'password' => 'required|string|min:6',
+            'password' => 'required|string',
             'confirm_password' => 'required|same:password',
         ];
 
@@ -96,7 +96,7 @@ class AuthController extends Controller
     public function changePassword(Request $request)
     {
         $request->validate([
-            'new_password' => 'required|min:6',
+            'new_password' => 'required',
             'confirm_new_password' => 'required|same:new_password'
         ]);
 
