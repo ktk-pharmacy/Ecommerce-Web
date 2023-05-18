@@ -62,3 +62,8 @@ Route::group(['prefix' => 'v1','namespace' => 'Api\v1','middleware' => ['auth:cu
 Route::group(['prefix' => 'v2','namespace' => 'Api\v2','middleware' => ['auth:customer']], function () {
     Route::post('carts/{product_id}', 'CartController@store');
 });
+
+Route::group(['prefix' => 'v1','namespace' => 'Api\v1'],
+function () {
+    Route::get('settings','SettingController@index');
+});
