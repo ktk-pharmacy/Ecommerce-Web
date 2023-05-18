@@ -49,11 +49,11 @@ $deliveryCalculateMethod = function (data) {
     if ($("input[type='radio'][name='delivery_type']:checked").val() == 'premium') {// when deli type checkbox is premium
         $('#deli_fee').val(data[1].delivery_charges[1].amount);
         $('#delivery_charge').html(Number($extra_gross_weight_charge ?? 0) + data[1].delivery_charges[1].amount);
-        $('#order_total').html(Number($('#sub_total').html()) + data[1].delivery_charges[1].amount + Number($extra_gross_weight_charge ?? 0));
+        $('#order_total').html((Number($('#sub_total').html())-$('.discount-input').val()??0) + data[1].delivery_charges[1].amount + Number($extra_gross_weight_charge ?? 0));
     } else {// when deli type checkbox id normal
         $('#deli_fee').val(data[1].delivery_charges[0].amount);
         $('#delivery_charge').html(Number($extra_gross_weight_charge ?? 0) + data[1].delivery_charges[0].amount);
-        $('#order_total').html(Number($('#sub_total').html()) + data[1].delivery_charges[0].amount + Number($extra_gross_weight_charge ?? 0));
+        $('#order_total').html((Number($('#sub_total').html())-$('.discount-input').val()??0) + data[1].delivery_charges[0].amount + Number($extra_gross_weight_charge ?? 0));
     }
 };
 
@@ -129,5 +129,53 @@ $('#city_select').on('change', function (e) {
                 title: "Something want wrong!",
             });
         }
+    });
+});
+
+var subTotal = Number($('#sub_total').html());
+$('.apply-coupon').click(function (e) {
+    e.preventDefault();
+    var url = $(this).data('url');
+    var coupon = $('.coupon-name').val();
+
+    if (!coupon) {
+        Toast.fire({
+            icon: "error",
+            title: 'Coupon required!',
+        });
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: {
+            coupon: coupon,
+            cart_total: subTotal
+        },
+        dataType: "Json",
+        success: function (response) {
+            Toast.fire({
+                icon: "success",
+                title: response.message,
+            });
+
+            $('.coupon').val(coupon);
+            $('.discount-section').html(`<td><strong>Discount</strong></td>
+            <td><strong>MMK ${response.data.discount_total}</strong></td>`);
+            $('.discount-input').val(response.data.discount_total);
+            $('#order_total_container').show();
+            $('#order_total').html((subTotal - response.data.discount_total) + Number($extra_gross_weight_charge ?? 0) + Number($('#deli_fee').val() ?? 0));
+            // $('.coupon-discount').html("MMK" + response.data.discount_total);
+            // $('.order-total').html(parseInt(subTotal.replace(",", ""), 10) - response.data.discount_total);
+
+        },
+        error: function (data) {
+            err = data.responseJSON;
+
+            Toast.fire({
+                icon: "error",
+                title: err.message,
+            });
+        },
     });
 });

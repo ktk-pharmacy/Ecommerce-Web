@@ -154,6 +154,7 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
         Route::post('checkout', 'CheckoutController@checkout')->name('checkout');
         Route::get('township/{id}', 'CheckoutController@getTownshipView')->name('township');
         Route::get('delivery/{id}','CheckoutController@getDeliveryCharge')->name('delivery_charge');
+        Route::post('cupon-data','CheckoutController@couponData')->name('coupon-data');
         //Account
         Route::get('/myaccount', 'AccountController@myaccount')->name('myaccount');
         Route::get('/myorder', 'AccountController@myorder');
@@ -163,5 +164,7 @@ Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
 
         //Order
         Route::Post('/order/detail/{id}', 'AccountController@myorderdetail')->name('order.detail-view');
+
+
     });
 });

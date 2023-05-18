@@ -37,8 +37,8 @@
                                     <div class="ltn__coupon-code-form">
                                         <p>If you have a coupon code, please apply it below.</p>
                                         <form action="#">
-                                            <input type="text" name="coupon-code" placeholder="Coupon code">
-                                            <button class="btn theme-btn-2 btn-effect-2 text-uppercase">Apply
+                                            <input type="text" class="coupon-name" name="coupon" placeholder="Coupon code">
+                                            <button class="btn theme-btn-2 btn-effect-2 text-uppercase apply-coupon" data-url="{{ route('frontend.coupon-data') }}">Apply
                                                 Coupon</button>
                                         </form>
                                     </div>
@@ -53,6 +53,8 @@
                                     @endphp
                                     <form action="{{ route('frontend.checkout') }}" method="POST" id="checkout_form">
                                         @csrf
+                                        <input type="hidden" class="coupon" name="coupon" value="">
+                                        <input type="hidden" class="discount-input" name="discount" value="0">
                                         <h5 title-2>Personal Information</h5>
                                         <div class="row">
                                             <div class="col-md-6">
@@ -328,6 +330,9 @@
                                                                             id='sub_total'>{{ $order_total }}</span></strong>
                                                                 </td>
                                                             </tr>
+                                                            <tr class="discount-section">
+
+                                                            </tr>
                                                             <tr>
                                                                 @php
                                                                     $total_gross_weight = 0;
@@ -375,6 +380,7 @@
                                                                 <td><strong>MMK <span id="order_total"></span></strong>
                                                                 </td>
                                                             </tr>
+
                                                         </tbody>
                                                     </table>
                                                     <b class=""><span class="text-danger">*</span> Delivery Charges

@@ -196,7 +196,7 @@
                         <label for="product-sell-limit">
                             Sell Limit <span class="text-danger">*</span>
                          </label>
-                         <input type="number" name="sell_limit" class="form-control" id="product-sell-limit" placeholder="Enter Sell Limit" required>
+                         <input type="number" name="sell_limit" class="form-control" id="product-sell-limit" placeholder="Enter Sell Limit" >
                     </div>
                   </div>
                </div>

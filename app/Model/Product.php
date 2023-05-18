@@ -84,12 +84,12 @@ class Product extends Model
     public function getDiscountToAttribute($value)
     {
         $date = new DateTime($value);
-        return $date->modify('-1 day')->format('d-m-Y');
+        return $date->modify('-1 day')->format('Y-m-d');
     }
 
     public function hasDiscount()
     {
-        return $this->discount_amount && $this->discount_from <= today() && $this->discount_to >= today()->format('d-m-Y');
+        return $this->discount_amount && $this->discount_from <= today() && $this->discount_to >= today()->format('Y-m-d');
     }
 
     public function getDiscountAttribute()

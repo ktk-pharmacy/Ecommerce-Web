@@ -13,9 +13,11 @@ use App\Helpers\CustomerAuth;
 use App\Model\DeliveryInformation;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Traits\ValidityCoupon;
 
 class CheckoutController extends Controller
 {
+    use ValidityCoupon;
     public function checkoutForm()
     {
         $customerId = session('customerId');
@@ -128,6 +130,14 @@ class CheckoutController extends Controller
             $requestData['delivery_information_id'] = $delivery_info->id;
             $requestData['delivery_charge'] = $request->delivery_charge + $request->extra_gross_weight_charge;
 
+            if ($request->coupon) {
+                $coupon = $this->checkCoupon($request->coupon, $order_total, session('customerId'));
+                if ($coupon->status() != 200) {
+                    return $coupon;
+                }
+                $requestData['coupon_id'] = $coupon->getData()->data->id;
+            }
+
             $order = Order::create($requestData);
             $order->products()->createMany($order_products);
 
@@ -148,5 +158,11 @@ class CheckoutController extends Controller
                         ->withInput($request->input())
                         ->with('error', $th->getMessage());
         }
+    }
+
+    public function couponData(Request $request)
+    {
+        $coupon = $this->checkCoupon($request->coupon,$request->cart_total,session('customerId'));
+        return $coupon;
     }
 }

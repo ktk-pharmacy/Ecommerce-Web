@@ -74,8 +74,12 @@
                                                     manage your <span>shipping and billing addresses</span>, and <span>edit
                                                         your password and account details</span>.</p>
                                             </div>
-                                            <button class="btn btn-secondary danger-btn" id="deactivate_btn" data-action-url="{{ route('frontend.deactivate-myaccount',$customer->id) }}">DeAcivate Acc</button>
-                                            <button class="btn btn-dark danger-btn" id="delete_btn" data-action-url="{{ route('frontend.delete-myaccount',$customer->id) }}">Delete Acc</button>
+                                            <button class="btn btn-secondary danger-btn" id="deactivate_btn"
+                                                data-action-url="{{ route('frontend.deactivate-myaccount', $customer->id) }}">DeAcivate
+                                                Acc</button>
+                                            <button class="btn btn-dark danger-btn" id="delete_btn"
+                                                data-action-url="{{ route('frontend.delete-myaccount', $customer->id) }}">Delete
+                                                Acc</button>
                                         </div>
                                         <div class="tab-pane fade" id="liton_tab_1_2">
                                             <div class="ltn__myaccount-tab-content-inner">
@@ -97,7 +101,7 @@
                                                                     <td>{{ $order->id }}</td>
                                                                     <td>{{ $order->created_at->format('d-M-Y') }}</td>
                                                                     <td>{{ $order->status }}</td>
-                                                                    <td>{{ $order->delivery_charge == null ? $order->order_total : $order->delivery_charge + $order->order_total }}
+                                                                    <td>{{ $order->delivery_charge==Null?$order->order_total-$order->coupon_amount:$order->delivery_charge+$order->order_total-$order->coupon_amount }}
                                                                         Ks</td>
                                                                     <td>{{ $order->delivery_ref_no ?? 'Null' }}</td>
                                                                     <td>
@@ -315,44 +319,43 @@
     <!-- CALL TO ACTION END -->
 @endsection
 @section('script')
-<script>
-    $('.danger-btn').click(function(){
-        $url = $(this).data('action-url');
-        $condition = $(this).attr('id')=="deactivate_btn"?'Deactivate':'Delete';
-        Swal.fire({
-            title: 'Are you sure?',
-            text: `You want to ${$condition} your Account!`,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: `Yes, ${$condition} now!`
-        }).then((result) => {
-            if (result.isConfirmed) {
-                if ($condition == 'Deactivate') {
-                    $.ajax({
-                        type: "get",
-                        url: $url,
-                        success:function(response){
-                            if (response.status=='success') {
-                                window.location.href='/home';
+    <script>
+        $('.danger-btn').click(function() {
+            $url = $(this).data('action-url');
+            $condition = $(this).attr('id') == "deactivate_btn" ? 'Deactivate' : 'Delete';
+            Swal.fire({
+                title: 'Are you sure?',
+                text: `You want to ${$condition} your Account!`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: `Yes, ${$condition} now!`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if ($condition == 'Deactivate') {
+                        $.ajax({
+                            type: "get",
+                            url: $url,
+                            success: function(response) {
+                                if (response.status == 'success') {
+                                    window.location.href = '/home';
+                                }
                             }
-                        }
-                    });
-                }   else {
-                $.ajax({
-                    type: "get",
-                    url: $url,
-                    success: function (response) {
-                        if (response.status=='success') {
-                            window.location.href='/home';
-                        }
+                        });
+                    } else {
+                        $.ajax({
+                            type: "get",
+                            url: $url,
+                            success: function(response) {
+                                if (response.status == 'success') {
+                                    window.location.href = '/home';
+                                }
+                            }
+                        });
                     }
-                });
-            }
-            }
-        })
-    }) ;
-</script>
-
+                }
+            })
+        });
+    </script>
 @endsection
