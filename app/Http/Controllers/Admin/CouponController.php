@@ -63,12 +63,12 @@ class CouponController extends Controller
         $this->validate($request, [
             'name' => 'required_if:generate_coupon_name,true|unique:coupons'
         ]);
-        
+
         $requestData = $request->all();
 
-        $date = splitDateRange($requestData['valid_date']);
-        $requestData['from'] = $date['from'];
-        $requestData['to'] = $date['to'];
+        // $date = splitDateRange($requestData['valid_date']);
+        // $requestData['from'] = $date['from'];
+        // $requestData['to'] = $date['to'];
 
         if (isset($requestData['generate_coupon_name'])) {
             for ($i=0; $i < $requestData['coupon_quantity']; $i++) {

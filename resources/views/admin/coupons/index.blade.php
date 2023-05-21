@@ -127,7 +127,10 @@
                     }},
                     {data: 'min_amount'},
                     {data: function (data) {
-                        return data.limit_per_coupon + ' (' + data.orders_count + ')'
+                        if (data.limit_per_coupon) {
+                            return data.limit_per_coupon + ' (' + data.orders_count + ')';
+                        }
+                        return data.orders_count;
                     }},
                     {data: 'limit_per_user'},
                     {data: function (data) {
@@ -159,6 +162,6 @@
             if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
                 return decodeURIComponent(name[1]);
         }
-        
+
 </script>
 @endsection

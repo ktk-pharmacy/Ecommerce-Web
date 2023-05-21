@@ -92,11 +92,22 @@
                                  </div>
 
                                  <div class="form-group row">
-                                    <label for="valid_date" class="col-md-3 col-sm-3 col-form-label">Date<span
+                                    <label for="valid_date" class="col-md-3 col-sm-3 col-form-label">From Date<span
                                           class="text-danger">*</span></label>
                                     <div class="col-md-3 col-sm-3">
-                                       <input type="text" name="valid_date" value="{{ old('valid_date') }}" id="range-datepicker"
-                                          class="form-control" placeholder="2018-10-03 to 2018-10-10" required>
+                                       {{-- <input type="text" name="valid_date" value="{{ old('valid_date') }}" id="range-datepicker"
+                                          class="form-control" placeholder="2018-10-03 to 2018-10-10" required> --}}
+                                          <input type="date" placeholder="Enter Date From" class="form-control" name="from" id="from_date" required>
+                                    </div>
+                                 </div>
+
+                                 <div class="form-group row">
+                                    <label for="valid_date" class="col-md-3 col-sm-3 col-form-label">To Date<span
+                                          class="text-danger">*</span></label>
+                                    <div class="col-md-3 col-sm-3">
+                                       {{-- <input type="text" name="valid_date" value="{{ old('valid_date') }}" id="range-datepicker"
+                                          class="form-control" placeholder="2018-10-03 to 2018-10-10" required> --}}
+                                          <input type="date" placeholder="Enter Date To" class="form-control" name="to" required id="to_date">
                                     </div>
                                  </div>
 
@@ -197,8 +208,15 @@
 <script>
    $(document).ready(function() {
             $('.parsley-validation').parsley();
-            $('#range-datepicker').flatpickr({
-               mode: "range"
+            // $('#range-datepicker').flatpickr({
+            //    mode: "range"
+            // });
+
+            $('#from_date').flatpickr({
+                minDate: "today"
+            });
+            $('#to_date').flatpickr({
+                minDate: "today"
             });
 
             $("#generate_coupon_name").change(function() {
@@ -221,8 +239,8 @@
                     $(".coupon_quantity").hide();
                     $("#coupon_quantity").removeAttr('required', true);
                 }
-                
-            }); 
+
+            });
         })
 </script>
 @endsection
