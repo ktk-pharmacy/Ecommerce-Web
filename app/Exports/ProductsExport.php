@@ -17,6 +17,7 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping {
     function __construct(protected $products){
 
     }
+
     public function headings(): array
     {
         return [
