@@ -14,6 +14,7 @@ class ProductController extends Controller
         $search = $request->search;
         $category_id = $request->category;
         $price_range = explode("~", $request->price);
+        $sorting = $request->sorting;
 
         $products = Product::when($search, function ($q, $search) {
             $q->whereHas('sub_category', function ($query) use ($search) {
@@ -27,9 +28,14 @@ class ProductController extends Controller
             $q->orWhereHas('sub_category.parent', function ($query) use ($category_id) {
                 $query->where('id', $category_id);
             })->orwhere('category_id', $category_id);
-        })
-        ->when($request->price, function ($q) use ($price_range) {
+        })->when($request->price, function ($q) use ($price_range) {
             $q->whereBetween('sale_price', $price_range);
+        })->when($sorting, function ($q) use ($sorting) {
+            if ($sorting == 'asc') {
+                return $q->orderBy('sale_price', 'asc');
+            } else {
+                return $q->orderBy('sale_price', 'desc');
+            }
         })->publish()->latest()->paginate(12)->withQueryString();
 
         $main_categories = Category::has('categoryProducts')->with(['childs' => function ($q) {
