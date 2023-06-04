@@ -13,7 +13,7 @@ return [
     'shop' => 'Shop',
     'all_products' => 'All Products',
     'blogs' => 'Blogs',
-    'contact_us' => 'Contant Us',
+    'contact_us' => 'Contact Us',
     'bonous' => 'Bonous',
     'search_here' => 'Search here...'
 

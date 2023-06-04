@@ -40,6 +40,8 @@ class ProductsImport implements ToModel, WithHeadingRow, WithMultipleSheets
             'discount_to' => $row['discount_to'],
             'stock' => $row['stock'],
             'uom' => $row['uom'],
+            'product_detail' => $row['product_detail'],
+            'other_information' => $row['other_information'],
             'is_new' => $row['is_new'] ? true : false,
         ]);
     }

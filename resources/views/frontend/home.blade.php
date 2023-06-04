@@ -631,7 +631,7 @@
         <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title">Myansan's Collection</h1>
+                        <h1 class="section-title">SayAid's Collection</h1>
                     </div>
                 </div>
             </div>
