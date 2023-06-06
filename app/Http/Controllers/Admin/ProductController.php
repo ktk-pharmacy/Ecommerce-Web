@@ -13,6 +13,8 @@ use App\Exports\ProductsExport;
 use App\Imports\ProductsImport;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Model\Order;
+use App\Model\OrderProduct;
 use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -143,6 +145,14 @@ class ProductController extends Controller
     {
         Cart::where('product_id',$id)->delete();
         DB::table('product_user')->where('product_id',$id)->delete();
+        $orderProducts = OrderProduct::where('product_id',$id)->get();
+        foreach ($orderProducts as $item) {
+            $order = Order::find($item->order_id);
+            $reDefinedPrice = $order->order_total - $item->order_product_total;
+            $order->order_total = $reDefinedPrice;
+            $order->save();
+            OrderProduct::find($item->id)->delete();
+        }
 
         Product::findOrFail($id)->update([
             'status' => false,
