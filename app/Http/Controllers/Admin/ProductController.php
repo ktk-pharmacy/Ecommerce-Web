@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Model\Cart;
 use App\Model\Brand;
 use App\Model\Media;
 use App\Model\Product;
@@ -10,6 +11,7 @@ use App\Traits\GenerateSlug;
 use Illuminate\Http\Request;
 use App\Exports\ProductsExport;
 use App\Imports\ProductsImport;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 use Maatwebsite\Excel\Facades\Excel;
@@ -139,6 +141,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
+        Cart::where('product_id',$id)->delete();
+        DB::table('product_user')->where('product_id',$id)->delete();
+
         Product::findOrFail($id)->update([
             'status' => false,
             'deleted_at' => now()
@@ -214,7 +219,6 @@ class ProductController extends Controller
 
     public function exportProducts(){
         $products =  Product::all();
-        // $products = Product::skip(0)->take(100)->get();
         return Excel::download(new ProductsExport($products), 'products.xlsx');
     }
 }
