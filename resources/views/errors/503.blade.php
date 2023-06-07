@@ -18,7 +18,7 @@
                <div class="text-center">
                   <h2>
                      <a href="{{route('frontend.home')}}">
-                        <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="main-logo" height="100" />
+                        <img src="{{asset('assets/theme/img/sayaid2.png')}}" alt="main-logo" height="100" />
                      </a>
                   </h2>
 

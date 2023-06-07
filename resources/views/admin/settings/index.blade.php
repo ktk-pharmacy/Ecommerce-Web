@@ -192,7 +192,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 1</label>
                                                     <input type="file" name="bonous_1_img" id="bonous_1_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_1_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_1_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_1_title"
@@ -204,7 +204,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 2</label>
                                                     <input type="file" name="bonous_2_img" id="bonous_2_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_2_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_2_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_2_title"
@@ -219,7 +219,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 3</label>
                                                     <input type="file" name="bonous_3_img" id="bonous_3_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_3_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_3_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_3_title"
@@ -231,7 +231,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 4</label>
                                                     <input type="file" name="bonous_4_img" id="bonous_4_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_4_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_4_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_4_title"
@@ -246,7 +246,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 5</label>
                                                     <input type="file" name="bonous_5_img" id="bonous_5_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_5_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_5_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_5_title"
@@ -258,7 +258,7 @@
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 6</label>
                                                     <input type="file" name="bonous_6_img" id="bonous_6_img"
-                                                        data-default-file="{{ asset(config('settings.bonous_6_img'))??'assets/theme/img/sayaid1.png' }}"
+                                                        data-default-file="{{ asset(config('settings.bonous_6_img'))??'assets/theme/img/sayaid2.png' }}"
                                                         data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
 
                                                         <input type="text" name="bonous_6_title"

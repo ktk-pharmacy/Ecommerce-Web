@@ -6,7 +6,7 @@
                <div class="footer-widget footer-about-widget">
                   <div class="footer-logo">
                      <div class="site-logo">
-                        <img width=100 height=100 src="{{asset('assets/theme/img/sayaid1.png')}}" alt="Logo">
+                        <img width=100 height=100 src="{{asset('assets/theme/img/sayaid2.png')}}" alt="Logo">
                      </div>
                   </div>
                   <p>SayAid, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range. Now we planned to move forward as new step by the name SayAid for e-business in the future. We will sell our product with fair and reasonable price depends on market demand. We aim that people can easily buy medicine, pharmacy and consumer products from this web and app..</p>

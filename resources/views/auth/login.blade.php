@@ -21,13 +21,13 @@
                                         {{-- <h4>{{ config('app.name') }}</h4> --}}
                                         <a href="#" class="logo logo-dark text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="" height="55">
+                                                <img src="{{asset('assets/theme/img/sayaid2.png')}}" alt="" height="55">
                                             </span>
                                         </a>
 
                                         <a href="#" class="logo logo-light text-center">
                                             <span class="logo-lg">
-                                                <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="" height="55">
+                                                <img src="{{asset('assets/theme/img/sayaid2.png')}}" alt="" height="55">
                                             </span>
                                         </a>
                                     </div>
