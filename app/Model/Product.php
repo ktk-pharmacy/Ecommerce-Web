@@ -87,12 +87,6 @@ class Product extends Model
         return $date->modify('-1 day')->format('Y-m-d');
     }
 
-    public function getDiscountToRealAttribute()
-    {
-        $date = new DateTime($this->discount_to);
-        return $date->modify('+1 day')->format('Y-m-d');
-    }
-
     public function hasDiscount()
     {
         return $this->discount_amount && $this->discount_from <= today() && $this->discount_to >= today()->format('Y-m-d');

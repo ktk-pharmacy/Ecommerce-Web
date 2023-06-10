@@ -146,12 +146,14 @@ class ProductController extends Controller
         Cart::where('product_id',$id)->delete();
         DB::table('product_user')->where('product_id',$id)->delete();
         $orderProducts = OrderProduct::where('product_id',$id)->get();
-        foreach ($orderProducts as $item) {
-            $order = Order::find($item->order_id);
-            $reDefinedPrice = $order->order_total - $item->order_product_total;
-            $order->order_total = $reDefinedPrice;
-            $order->save();
-            OrderProduct::find($item->id)->delete();
+        if ($orderProducts) {
+            foreach ($orderProducts as $item) {
+                $order = Order::find($item->order_id);
+                $reDefinedPrice = $order->order_total - $item->order_product_total;
+                $order->order_total = $reDefinedPrice;
+                $order->save();
+                OrderProduct::find($item->id)->delete();
+            }
         }
 
         Product::findOrFail($id)->update([

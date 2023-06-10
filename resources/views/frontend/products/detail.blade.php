@@ -57,10 +57,10 @@
                                             <del>{{ $product->sale_price }}</del>
                                             <div class="d-flex gap-1 align-items-center">
                                                 <small>Discount end in</small>
-                                                <small>
+                                                <small class="day-container">
                                                     <span class="day"></span>d
                                                 </small>
-                                                <small>
+                                                <small class="hour-container">
                                                     <span class="hour"></span>h
                                                 </small>
                                                 <small>
@@ -396,9 +396,7 @@
             -------------------------------------------------------- */
             let product_limit = "{{ $product->sell_limit }}";
             let sell_limit = "{{ $sell_limit }}";
-            if (sell_limit !== "unlimit") {
-                sell_limit = Number("{{ $sell_limit }}");
-            }
+            if (sell_limit !== "unlimit") sell_limit = Number("{{ $sell_limit }}");
 
             $(".cart-plus-minus").prepend('<div class="dec qtybutton">-</div>');
             $(".cart-plus-minus").append('<div class="inc qtybutton">+</div>');
@@ -420,11 +418,7 @@
                         }
                     }
                 } else {
-                    if (oldValue > 0) {
-                        var newVal = parseFloat(oldValue) - 1;
-                    } else {
-                        newVal = 0;
-                    }
+                    oldValue > 0 ? var newVal = parseFloat(oldValue) - 1 : newVal = 0;
                 }
                 $button.parent().find("input").val(newVal);
             });
@@ -432,20 +426,27 @@
 
             let discount = "{{ $product->discount }}";
 
-            if (discount) {
-                countdown("{{ $product->discount_to_real }}");
-            }
+            if (discount) countdown("{{ $product->discount_to }}");
 
             function countdown(targetDate) {
                 var target = new Date(targetDate).getTime();
 
                 var countdownInterval = setInterval(function() {
-                    var now = new Date().getTime();
-                    var distance = target - now;
+                    var now = new Date();
+                    var utcNow = Date.UTC(
+                        now.getUTCFullYear(),
+                        now.getUTCMonth(),
+                        now.getUTCDate(),
+                        now.getUTCHours(),
+                        now.getUTCMinutes(),
+                        now.getUTCSeconds(),
+                    );
+                    var yangonTime = utcNow + 5.5 * 60 * 60 *
+                    1000; // Adjusting to Yangon timezone (UTC+5:30)
+                    var distance = target - yangonTime;
 
                     if (distance <= 0) {
                         clearInterval(countdownInterval);
-                        console.log("Countdown complete! Today is the target date.");
                         return;
                     }
 
@@ -454,14 +455,15 @@
                     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+                    if (days == 0) $('.day-container').hide();
+                    if (hours == 0) $('.hour-container').hide();
                     $('.day').html(days);
                     $('.hour').html(hours);
                     $('.minute').html(minutes);
                     $('.second').html(seconds);
-                    // console.log("Remaining time: " + days + "d " + hours + "h " + minutes + "m " + seconds +
-                    //     "s");
                 }, 1000);
             }
+
 
         });
     </script>
