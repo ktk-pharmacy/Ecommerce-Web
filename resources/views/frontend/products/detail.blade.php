@@ -418,7 +418,11 @@
                         }
                     }
                 } else {
-                    oldValue > 0 ? var newVal = parseFloat(oldValue) - 1 : newVal = 0;
+                    if (oldValue > 0) {
+                        var newVal = parseFloat(oldValue) - 1
+                    } else {
+                        newVal = 0;
+                    }
                 }
                 $button.parent().find("input").val(newVal);
             });
