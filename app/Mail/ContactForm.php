@@ -29,7 +29,7 @@ class ContactForm extends Mailable
     public function build()
     {
         $formData = $this->formData;
-        
+
         return $this->subject($formData['subject'])
                     ->view('emails.contact-form', compact('formData'));
     }

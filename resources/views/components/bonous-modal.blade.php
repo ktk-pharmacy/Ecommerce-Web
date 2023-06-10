@@ -15,7 +15,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex flex-column gap-2 justify-content-center align-items-center">
-                <img width="110" src="{{ $img ? asset($img) : 'assets/theme/img/sayaid1.png' }}" alt="#">
+                <img width="110" src="{{ $img ? asset($img) : 'assets/theme/img/sayaid2.png' }}" alt="#">
                 {{ $slot }}
             </div>
         </div>

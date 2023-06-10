@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->mediumText('description')->nullable();
-            $table->string('feature_image')->default('assets/theme/img/sayaid1.png');
+            $table->string('feature_image')->default('assets/theme/img/sayaid2.png');
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('sale_price');
             $table->unsignedBigInteger('discount_amount')->nullable();

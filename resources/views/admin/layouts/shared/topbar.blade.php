@@ -242,7 +242,7 @@
 
             <li class="dropdown notification-list topbar-dropdown">
                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                    <img src="{{asset('assets/theme/img/sayaid1.png')}}" alt="{{ auth()->user()->name }}-image" class="rounded-circle">
+                    <img src="{{asset('assets/theme/img/sayaid2.png')}}" alt="{{ auth()->user()->name }}-image" class="rounded-circle">
                     <span class="pro-user-name ml-1 text-dark">
                         {{ auth()->user()->name }} <i class="mdi mdi-chevron-down"></i>
                     </span>
@@ -303,7 +303,7 @@
                 <span class="logo-lg">
                     <span class="logo-lg-text-light">SayAid</span>
                 </span> --}}
-                <img class=" ml-2" style="width: 70px; height:70px" src="{{ asset('assets/theme/img/sayaid1.png') }}" alt="">
+                <img class=" ml-2" style="width: 70px; height:70px" src="{{ asset('assets/theme/img/sayaid2.png') }}" alt="">
             </a>
 
             <a href="{{route('admin.dashboard')}}" class="logo logo-light text-center mx-2" tabindex="-1">
@@ -313,7 +313,7 @@
                 <span class="logo-lg">
                     <span class="logo-lg-text-light">SayAid</span>
                 </span> --}}
-                <img class=" " style="width: 70px; height:70px" src="{{ asset('assets/theme/img/sayaid1.png') }}" alt="">
+                <img class=" " style="width: 70px; height:70px" src="{{ asset('assets/theme/img/sayaid2.png') }}" alt="">
             </a>
         </div>
 

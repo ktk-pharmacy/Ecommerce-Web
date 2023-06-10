@@ -7,7 +7,7 @@
     <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="{{ $target }}">
         <div class="ltn__feature-item ltn__feature-item-6 text-center bg-white  box-shadow-1">
             <div class="ltn__feature-icon">
-                <img width="90" src="{{ $img ? asset($img) : 'assets/theme/img/sayaid1.png' }}" alt="#">
+                <img width="90" src="{{ $img ? asset($img) : 'assets/theme/img/sayaid2.png' }}" alt="#">
             </div>
             <div class="ltn__feature-info">
                 <h3><a href="javascript:void(0)" data-bs-toggle="modal"

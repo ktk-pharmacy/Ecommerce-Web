@@ -54,7 +54,7 @@ class Customer extends Authenticatable
 
     public function getProfileImageAttribute($value)
     {
-        return asset($value ?? '/assets/theme/img/sayaid1.png');
+        return asset($value ?? '/assets/theme/img/sayaid2.png');
     }
 
     public function orders()

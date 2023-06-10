@@ -6,4 +6,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- App favicon -->
-<link rel="shortcut icon" href="{{asset('/assets/theme/img/sayaid1.png')}}" type="image/x-icon">
+<link rel="shortcut icon" href="{{asset('/assets/theme/img/sayaid2.png')}}" type="image/x-icon">

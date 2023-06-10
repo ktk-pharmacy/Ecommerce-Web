@@ -25,7 +25,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_1_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
         [
             'key'                       =>  'bonous_2_title',
@@ -37,7 +37,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_2_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
         [
             'key'                       =>  'bonous_3_title',
@@ -49,7 +49,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_3_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
         [
             'key'                       =>  'bonous_4_title',
@@ -61,7 +61,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_4_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
         [
             'key'                       =>  'bonous_5_title',
@@ -73,7 +73,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_5_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
         [
             'key'                       =>  'bonous_6_title',
@@ -85,7 +85,7 @@ class BonousSeeder extends Seeder
         ],
         [
             'key'                       =>  'bonous_6_img',
-            'value'                     =>  'assets/theme/img/sayaid1.png',
+            'value'                     =>  'assets/theme/img/sayaid2.png',
         ],
     ];
 
