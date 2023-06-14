@@ -1,17 +1,16 @@
 @extends('frontend.layouts.master', ['title' => 'Home'])
-
 @section('main-content')
-<style>
-    h4.card-title a:hover {
-        color: #710ac2 !important;
-    }
-</style>
     <!-- SLIDER AREA START (slider-3) -->
     <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-7">
                     <div id="carouselExampleIndicators" class="carousel slide  mb-30" data-bs-ride="carousel">
+                        <div class="carousel-indicators ">
+                        @for($i=0;$i<count($sliders);$i++)
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ $i }}" class="carousel-button {{ $i == 0 ? ' active' : '' }}" aria-current="{{ $i == 0 ? 'true' : '' }}" aria-label="Slide {{ $i+1 }}"></button>
+                          @endfor
+                        </div>
                         <div class="carousel-inner ">
                         @foreach ($sliders as $key => $slider)
                           <div class="carousel-item {{ $key == 0 ? ' active' : '' }} ltn__slide-item ltn__slide-item-10 section-bg-1  bg-image" data-bs-interval="3500" data-bs-bg="{{ $slider->image_url }}">
@@ -20,6 +19,17 @@
                         </div>
 
                     </div>
+                </div>
+                <div class="col-lg-5">
+                    @foreach ($slider_sidebars as $slider_sidebar)
+                        <div class="ltn__banner-item">
+                            <div class="ltn__banner-img">
+                                <a href="{{ $slider_sidebar->link }}">
+                                    <img src="{{ $slider_sidebar->image_url }}" alt="Slider Sidebar Image">
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -57,45 +67,65 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-3">
+                    <div class="row">
+                        @foreach ($left_sidebars as $left_sidebar)
+                            <div class="col-lg-12 col-sm-6">
+                                <div class="ltn__banner-item">
+                                    <div class="ltn__banner-img">
+                                        <a href="{{ $left_sidebar->link }}">
+                                            <img src="{{ $left_sidebar->image_url }}" alt="Left Sidebar Image">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="col-lg-9">
                     <div class="row ltn__tab-product-slider-one-active--- slick-arrow-1">
                         @foreach ($feature_products as $feature_product)
                             <!-- ltn__product-item -->
-                            <div class="col-lg-3--- col-md-3 col-sm-6 col-6">
-                                <div class="card mb-3" style="height:230px">
-                                    <div class="row h-100 g-0">
-                                      <div class="col-md-4">
-                                        <img  src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
-                                      </div>
-                                      <div class="col-md-8">
-                                        <div class="card-body h-100 d-flex flex-column">
-                                          <h4
-                                          style="
-                                          color: #710ac2;
-                                          font-family: sans-serif;
-                                          "
-                                           class="card-title">
-                                            <a class='product-name' href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                            <div class="col-lg-3--- col-md-4 col-sm-6 col-6">
+                                <div class="ltn__product-item ltn__product-item-2 text-center">
+
+                                    <div style="overflow: visible !important;" class="product-img">
+                                        <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                            <img src="{{ $feature_product->feature_image }}" alt="#">
+                                        </a>
+                                        @if ($feature_product->is_new)
+                                            <div class="product-badge">
+                                                <ul>
+                                                    <li class="sale-badge">New</li>
+                                                </ul>
+                                            </div>
+                                        @endif
+
+                                    </div>
+                                    <div class="product-info">
+                                        <div class="product-ratting">
+                                            <ul>
+                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-star"></i></a></li>
+                                                <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
+                                                <li><a href="#"><i class="far fa-star"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <h2 class="product-title">
+                                            <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
                                                 {{ $feature_product->name }}
                                                 @if ($feature_product->stock == 0)
-                                                    <div><small class="">{{ $feature_product->name }} is currently out of stock</small></div>
+                                                    <div><small class="text-danger">{{ $feature_product->name }} is currently out of stock</small></div>
                                                 @endif
                                             </a>
-                                          </h4>
-                                          <div class="product-price">
-                                            <span class="text-dark">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
+                                        </h2>
+                                        <div class="product-price">
+                                            <span>MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
                                             @if ($feature_product->discount)
-                                                <del style="color: #710ac2">{{ $feature_product->sale_price }}</del>
+                                                <del>{{ $feature_product->sale_price }}</del>
                                             @endif
-                                            </div>
-                                            <a
-                                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
-                                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: #710ac2" class="btn mt-auto text-white px-2 py-1 rounded-2">
-                                                ADD TO CART
-                                            </a>
                                         </div>
-                                      </div>
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +138,30 @@
     <!-- PRODUCT AREA END -->
 
     <!-- COUNTDOWN AREA START -->
-
+    <div class="ltn__call-to-action-area section-bg-1 bg-image pt-120 pb-120" data-bs-bg="{{ asset(config('settings.frontend_campaing')??'assets/theme/img/bg/campaing.jpg') }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="call-to-action-inner text-color-white--- text-center---">
+                        <div class="section-title-area ltn__section-title-2--- text-center---">
+                            <h6 class="ltn__secondary-color"></h6>
+                            <h1 class="section-title"><br></h1>
+                            <p> <br>
+                                 </p>
+                        </div>
+                        <div class="ltn__countdown ltn__countdown-3 bg-white--" ></div>
+                        <div class="btn-wrapper animated">
+                            <a href="#" class="theme-btn-1 btn btn-effect-1 text-uppercase">Book Now</a>
+                            <a href="#" class="ltn__secondary-color text-decoration-underline">Deal of The Day</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!-- <img src="img/banner/15.png" alt="#"> -->
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- COUNTDOWN AREA END -->
 
     <!-- BANNER AREA START -->
@@ -293,7 +346,54 @@
     </div>
     <!-- BLOG AREA END -->
 
-
+    <!-- FEATURE AREA START ( Feature - 3) -->
+    <div class="ltn__feature-area section-bg-1 mt-90--- pt-30 pb-30 mt--65---">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__feature-item-box-wrap ltn__feature-item-box-wrap-2 ltn__border--- section-bg-1">
+                        <div class="ltn__feature-item ltn__feature-item-8">
+                            <div class="ltn__feature-icon">
+                                <img src="{{ asset('assets/theme/img/icons/svg/8-trolley.svg') }}" alt="#">
+                            </div>
+                            <div class="ltn__feature-info">
+                                <h4>Free shipping</h4>
+                                <p>On all orders over $49.00</p>
+                            </div>
+                        </div>
+                        <div class="ltn__feature-item ltn__feature-item-8">
+                            <div class="ltn__feature-icon">
+                                <img src="{{ asset('assets/theme/img/icons/svg/9-money.svg') }}" alt="#">
+                            </div>
+                            <div class="ltn__feature-info">
+                                <h4>15 days returns</h4>
+                                <p>Moneyback guarantee</p>
+                            </div>
+                        </div>
+                        <div class="ltn__feature-item ltn__feature-item-8">
+                            <div class="ltn__feature-icon">
+                                <img src="{{ asset('assets/theme/img/icons/svg/10-credit-card.svg') }}" alt="#">
+                            </div>
+                            <div class="ltn__feature-info">
+                                <h4>Secure checkout</h4>
+                                <p>Protected by Paypal</p>
+                            </div>
+                        </div>
+                        <div class="ltn__feature-item ltn__feature-item-8">
+                            <div class="ltn__feature-icon">
+                                <img src="{{ asset('assets/theme/img/icons/svg/11-gift-card.svg') }}" alt="#">
+                            </div>
+                            <div class="ltn__feature-info">
+                                <h4>Offer & gift here</h4>
+                                <p>On all orders over</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FEATURE AREA END -->
 @endsection
 @section('script')
     <script>
