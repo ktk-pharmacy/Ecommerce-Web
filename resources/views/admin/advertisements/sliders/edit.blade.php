@@ -56,7 +56,7 @@
                   <label for="product-name">Ads Name <span class="text-danger">*</span></label>
                   <input type="text" name="name" id="product-name" class="form-control" value="{{ $ads->name }}" placeholder="e.g : Apple iMac" autofocus
                      required>
-               </div> 
+               </div>
 
                <div class="form-group mb-3">
                   <label for="slider-text-1">Text 1 </label>
@@ -96,17 +96,17 @@
 
             <div class="card-box">
                <label for="image">Slider Image <span class="text-danger">*</span></label>
-               <input 
+               <input
                   type="file"
                   name="image"
                   id="image"
-                  data-max-file-size="500K"
+                  data-max-file-size="1000K"
                   data-max-width="1408"
                   data-max-height="993"
                   data-allowed-formats="landscape"
                   data-default-file="{{ $ads->image_url }}"
                   data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
-                  <p class="sub-header mt-2">file size is under 500KB, max Width x Height is 1408 X 993 and Landscape only</p>
+                  <p class="sub-header mt-2">file size is under 1000KB, max Width x Height is 1408 X 993 and Landscape only</p>
 
                <div class="form-group mt-3 mb-0">
                   <label for="status">Active</label>

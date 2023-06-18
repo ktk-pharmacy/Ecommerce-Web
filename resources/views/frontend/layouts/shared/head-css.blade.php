@@ -1,4 +1,4 @@
-@yield('css')
+
 <!-- Font Icons css -->
 <link rel="stylesheet" href="{{ asset('assets/theme/css/font-icons.css') }}">
 <!-- plugins css -->
@@ -20,3 +20,5 @@
         text-align: unset !important;
     }
 </style>
+
+@yield('css')

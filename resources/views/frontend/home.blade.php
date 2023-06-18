@@ -1,24 +1,28 @@
 @extends('frontend.layouts.master', ['title' => 'Home'])
-
+@section('css')
+    <link rel="stylesheet" href="asset('assets/theme/css/homepage-slider.css')">
+@endsection
 @section('main-content')
 <style>
     h4.card-title a:hover {
         color: #710ac2 !important;
     }
+    .main-slider {
+        height: 60vh;
+    }
 </style>
     <!-- SLIDER AREA START (slider-3) -->
-    <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="carouselExampleIndicators" class="carousel slide  mb-30" data-bs-ride="carousel">
-                        <div class="carousel-inner ">
+    <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30 main-slider mb-4">
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-12 h-100">
+                    <div id="carouselExampleIndicators" class="carousel slide h-100 mb-30" data-bs-ride="carousel">
+                        <div class="carousel-inner h-100">
                         @foreach ($sliders as $key => $slider)
-                          <div class="carousel-item {{ $key == 0 ? ' active' : '' }} ltn__slide-item ltn__slide-item-10 section-bg-1  bg-image" data-bs-interval="3500" data-bs-bg="{{ $slider->image_url }}">
+                          <div class="carousel-item h-100 {{ $key == 0 ? ' active' : '' }} ltn__slide-item ltn__slide-item-10 section-bg-1  bg-image" data-bs-interval="3500" data-bs-bg="{{ $slider->image_url }}">
                           </div>
                         @endforeach
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -29,13 +33,20 @@
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area mt-120---">
         <div class="container">
-            <div class="row ltn__custom-gutter--- justify-content-center">
+            <div
+
+             class="row ltn__custom-gutter--- justify-content-center">
                 @foreach ($banners1 as $banner1)
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="ltn__banner-item">
-                            <div class="ltn__banner-img">
+                    <div
+                    style="
+                    width: 400px;
+                    height:320px
+                    "
+                     class="col-lg-4 col-sm-6">
+                        <div class="ltn__banner-item w-100 h-100">
+                            <div class="ltn__banner-img w-100 h-100">
                                 <a href="{{ $banner1->link }}">
-                                    <img src="{{ $banner1->image_url }}" alt="Banner1 Image">
+                                    <img class=" w-100 h-100" src="{{ $banner1->image_url }}" alt="Banner1 Image">
                                 </a>
                             </div>
                         </div>
@@ -104,12 +115,50 @@
                 </div>
             </div>
         </div>
+
+
     </div>
     <!-- PRODUCT AREA END -->
 
-    <!-- COUNTDOWN AREA START -->
+    <div class="Container mb-4 px-5">
+        {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
+        <!-- Carousel Container -->
+        <div class="SlickCarousel">
+            @foreach ($left_sidebars as $left_sidebar)
+            <div class="ProductBlock mx-3">
+                <div class="Content">
+                  <div class="img-fill">
+                    <a href="{{ $left_sidebar->link }}">
+                        <img src="{{ $left_sidebar->image_url }}">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            @endforeach
+        </div>
+        <!-- Carousel Container -->
+    </div>
 
-    <!-- COUNTDOWN AREA END -->
+    <div class="Container px-5">
+        {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
+        <!-- Carousel Container -->
+        <div class="SlickCarousel">
+          <!-- Item -->
+           @foreach ($secondSliders as $secondSlider)
+            <div class="ProductBlock mx-3">
+                <div class="Content">
+                  <div class="img-fill">
+                    <a href="{{ $secondSlider->link }}">
+                        <img src="{{ $secondSlider->image_url }}">
+                    </a>
+                  </div>
+                </div>
+            </div>
+            @endforeach
+          <!-- Item -->
+        </div>
+        <!-- Carousel Container -->
+    </div>
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area pt-50 mt-120---">
@@ -121,13 +170,17 @@
                     </div>
                 </div>
             </div>
-            <div class="row ltn__custom-gutter--- justify-content-center">
+            <div class="row ltn__custom-gutter--- justify-content-center mb-5">
                 @foreach ($banners2 as $banner2)
-                <div class="col-lg-4 col-sm-6">
-                    <div class="ltn__banner-item">
-                        <div class="ltn__banner-img">
+                <div
+                style="
+                width: 400px;
+                height:320px"
+                 class="col-lg-4 col-sm-6">
+                    <div class="ltn__banner-item w-100 h-100">
+                        <div class="ltn__banner-img w-100 h-100">
                             <a href="{{ $banner2->link }}">
-                                <img src="{{ $banner2->image_url }}" alt="Banner2 Image">
+                                <img class="w-100 h-100" src="{{ $banner2->image_url }}" alt="Banner2 Image">
                             </a>
                         </div>
                     </div>
@@ -137,161 +190,6 @@
         </div>
     </div>
     <!-- BANNER AREA END -->
-
-    <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter pt-50 pb-70 d-none">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title">The Best For The Week</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row ltn__tab-product-slider-one-active--- slick-arrow-1">
-                @foreach ($new_products as $new_product)
-                    <!-- ltn__product-item -->
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
-                        <div class="ltn__product-item ltn__product-item-3 text-left">
-                            <div class="product-img">
-                                <a href="{{ route('frontend.products.detail', $new_product->slug) }}">
-                                    <img src="{{ $new_product->feature_image }}" alt="#">
-                                </a>
-                                @if ($new_product->is_new)
-                                <div class="product-badge">
-                                    <ul>
-                                        <li class="sale-badge">New</li>
-                                    </ul>
-                                </div>
-                                @endif
-                                <div class="product-hover-action">
-                                    <ul>
-                                        <li>
-                                            <a
-                                                href="javascript:void(0);"
-                                                title="Quick View"
-                                                class="quick-view-btn"
-                                                data-bs-target="#quick_view_modal"
-                                                data-quick-view-url="{{ route('frontend.products.quick-view', $new_product->id) }}">
-                                                <i class="far fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-
-                                            <a
-                                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.route('frontend.home') }}"
-                                                title="Add to Cart"
-                                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $new_product->id) }}"
-                                            >
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a
-                                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login').'?redirect='.route('frontend.home') }}"
-                                                title="Wishlist"
-                                                onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
-                                                data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $new_product->id) }}"
-                                                data-bs-target="#liton_wishlist_modal">
-                                                <i class="far fa-heart"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-info">
-                                <div class="product-ratting">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-star-half-alt"></i></a></li>
-                                        <li><a href="#"><i class="far fa-star"></i></a></li>
-                                    </ul>
-                                </div>
-                                <h2 class="product-title">
-                                    <a href="{{ route('frontend.products.detail', $new_product->slug) }}">
-                                        {{ $new_product->name }}
-                                    </a>
-                                </h2>
-                                <div class="product-price">
-                                    <span>MMK{{ $new_product->discount ?? $new_product->sale_price }}</span>
-                                    @if ($new_product->discount)
-                                        <del>{{ $new_product->sale_price }}</del>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- PRODUCT AREA END -->
-
-    <!-- BLOG AREA START (blog-3) -->
-    <div class="ltn__blog-area section-bg-1 pt-50 pb-70 d-none">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-area ltn__section-title-2--- text-center">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color d-none">News & Blogs</h6>
-                        <h1 class="section-title">Leatest Blogs</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row  ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal">
-                @foreach ($blogs as $blog)
-                    <!-- Blog Item -->
-                    <div class="col-lg-12">
-                        <div class="ltn__blog-item ltn__blog-item-3">
-                            <div class="ltn__blog-img">
-                                <a href="blog-details.html">
-                                    <img src="{{ $blog->feature_image }}" alt="#">
-                                </a>
-                            </div>
-                            <div class="ltn__blog-brief">
-                                <div class="ltn__blog-meta">
-                                    <ul>
-                                        <li class="ltn__blog-author">
-                                            <a href="#"><i class="far fa-user"></i>by: {{ $blog->author?->name }}</a>
-                                        </li>
-                                        <br>
-                                        <li class="ltn__blog-tags">
-                                            @foreach ($blog->terms as $term)
-                                                <a href="#">
-                                                    <i class="fas fa-tags"></i>{{ $term->name }}
-                                                </a>
-                                            @endforeach
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h3 class="ltn__blog-title">
-                                    <a href="blog-details.html">
-                                        {{ $blog->name }}
-                                    </a>
-                                </h3>
-                                <div class="ltn__blog-meta-btn">
-                                    <div class="ltn__blog-meta">
-                                        <ul>
-                                            <li class="ltn__blog-date">
-                                                <i class="far fa-calendar-alt"></i>{{ $blog->updated_at->format('M d, Y') }}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="ltn__blog-btn">
-                                        <a href="blog-details.html">Read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- BLOG AREA END -->
 
 
 @endsection
@@ -305,5 +203,32 @@
                 });
             },100);
         });
+
+        $(document).ready(function(){
+            $(".SlickCarousel").slick({
+                rtl:false, // If RTL Make it true & .slick-slide{float:right;}
+                autoplay:true,
+                autoplaySpeed:5000, //  Slide Delay
+                speed:800, // Transition Speed
+                slidesToShow:4, // Number Of Carousel
+                slidesToScroll:1, // Slide To Move
+                pauseOnHover:false,
+                appendArrows:$(".Container .Head .Arrows"), // Class For Arrows Buttons
+                prevArrow:'<span class="Slick-Prev"></span>',
+                nextArrow:'<span class="Slick-Next"></span>',
+                easing:"linear",
+                responsive:[
+                {breakpoint:801,settings:{
+                    slidesToShow:3,
+                }},
+                {breakpoint:641,settings:{
+                    slidesToShow:3,
+                }},
+                {breakpoint:481,settings:{
+                    slidesToShow:1,
+                }},
+                ],
+            })
+    })
     </script>
 @endsection

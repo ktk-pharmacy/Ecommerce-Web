@@ -20,14 +20,14 @@ class HomeController extends Controller
         $left_sidebars = $advertisements->where('type', Advertisement::LEFT_SIDEBAR);
         $banners1 = $advertisements->where('type', Advertisement::BANNER_1);
         $banners2 = $advertisements->where('type', Advertisement::BANNER_2);
-
+        $secondSliders = $advertisements->where('type', Advertisement::SECOND_SLIDER);
         $products = Product::active()->latest()->get();
         $feature_products = $products->slice(0, 8);
         $new_products = $products->where('is_new', true);
 
         $blogs = Post::with('author', 'terms')->active()->latest()->limit(6)->get();
 
-        return view('frontend.home', compact('sliders', 'slider_sidebars', 'left_sidebars', 'banners1', 'banners2', 'feature_products', 'new_products', 'blogs'));
+        return view('frontend.home', compact('sliders', 'slider_sidebars', 'left_sidebars', 'banners1', 'banners2', 'feature_products', 'new_products', 'blogs', 'secondSliders'));
     }
 
     public function infoPage($name)

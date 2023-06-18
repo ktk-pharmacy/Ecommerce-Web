@@ -119,7 +119,14 @@
                                 <a href="{{ route('admin.ads.index', 'slider_sidebar') }}">Slider Sidebar</a>
                             </li>
                             <li>
-                                <a href="{{ route('admin.ads.index', 'left_sidebar') }}">Left Sidebar</a>
+                                <a href="{{ route('admin.ads.index', 'left_sidebar') }}">
+                                    First Slider
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.ads.index', 'second_slider') }}">
+                                    Second Slider
+                                </a>
                             </li>
                             <li>
                                 <a href="{{ route('admin.ads.index', 'banner_1') }}">Banner 1</a>

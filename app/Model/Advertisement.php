@@ -23,6 +23,7 @@ class Advertisement extends Model
         'slider',
         'slider_sidebar',
         'left_sidebar',
+        'second_slider',
         'banner_1',
         'banner_2'
     ];
@@ -31,6 +32,7 @@ class Advertisement extends Model
 
     const SLIDER = 'slider';
     const SLIDER_SIDEBAR = 'slider_sidebar';
+    const SECOND_SLIDER = 'second_slider';
     const LEFT_SIDEBAR  = 'left_sidebar';
     const BANNER_1 = 'banner_1';
     const BANNER_2 = 'banner_2';

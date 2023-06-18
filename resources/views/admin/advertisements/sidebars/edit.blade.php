@@ -83,9 +83,9 @@
                               name="image"
                               id="image"
                               data-max-file-size="500K"
-                              data-max-width="877"
-                              data-max-height="470"
-                              data-allowed-formats="landscape"
+                                data-max-width="877"
+                                data-max-height="470"
+                                data-allowed-formats="landscape"
                               data-default-file="{{ $ads->image_url }}"
                               data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
                               <p class="sub-header mt-2">file size is under 500KB, max Width x Height is 877 X 470 and Landscape only</p>
@@ -95,9 +95,9 @@
                               name="image"
                               id="image"
                               data-max-file-size="500K"
-                              data-max-width="600"
+                              {{-- data-max-width="600"
                               data-max-height="701"
-                              data-allowed-formats="portrait"
+                              data-allowed-formats="portrait" --}}
                               data-default-file="{{ $ads->image_url }}"
                               data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
                               <p class="sub-header mt-2">file size is under 500KB, max Width x Height is 600 X 701 and Portrait only</p>
