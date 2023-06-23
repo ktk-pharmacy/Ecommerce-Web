@@ -12,7 +12,7 @@
     }
 </style>
     <!-- SLIDER AREA START (slider-3) -->
-    <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30 main-slider mb-5">
+    <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30 main-slider mb-4">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-12 h-100">
@@ -42,7 +42,7 @@
                     width: 400px;
                     height:320px
                     "
-                     class="col-lg-4 col-sm-6 mb-4">
+                     class="col-lg-4 col-sm-6">
                         <div class="ltn__banner-item w-100 h-100">
                             <div class="ltn__banner-img w-100 h-100">
                                 <a href="{{ $banner1->link }}">
@@ -59,7 +59,7 @@
 
     <!-- PRODUCT AREA START (product-item-3) -->
     <div class="ltn__product-area ltn__product-gutter  no-product-ratting pt-20--- pt-65  pb-70">
-        <div class="px-5">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
@@ -69,18 +69,18 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="row ">
+                    <div class="row ltn__tab-product-slider-one-active--- slick-arrow-1">
                         @foreach ($feature_products as $feature_product)
                             <!-- ltn__product-item -->
-                            <div class="col-md-4 col-lg-3 col-sm-6 col-12">
-                                <div class="card mb-4" style="height:230px">
+                            <div class="col-lg-3--- col-md-3 col-sm-6 col-6">
+                                <div class="card mb-3" style="height:230px">
                                     <div class="row h-100 g-0">
-                                      <div class="col-6 col-sm-4">
-                                        <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
+                                      <div class="col-md-4">
+                                        <img  src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
                                       </div>
-                                      <div class="col-6 col-sm-8">
+                                      <div class="col-md-8">
                                         <div class="card-body h-100 d-flex flex-column">
-                                          <h6
+                                          <h4
                                           style="
                                           color: #710ac2;
                                           font-family: sans-serif;
@@ -92,7 +92,7 @@
                                                     <div><small class="">{{ $feature_product->name }} is currently out of stock</small></div>
                                                 @endif
                                             </a>
-                                          </h6>
+                                          </h4>
                                           <div class="product-price">
                                             <span class="text-dark">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
                                             @if ($feature_product->discount)
@@ -102,7 +102,7 @@
                                             <a
                                                 href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
                                                 onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: #710ac2" class="btn mt-auto text-white px-2 py-1 mb-3 rounded-2">
+                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: #710ac2" class="btn mt-auto text-white px-2 py-1 rounded-2">
                                                 ADD TO CART
                                             </a>
                                         </div>
@@ -176,7 +176,7 @@
                 style="
                 width: 400px;
                 height:320px"
-                 class="col-lg-4 col-sm-6 mb-4">
+                 class="col-lg-4 col-sm-6">
                     <div class="ltn__banner-item w-100 h-100">
                         <div class="ltn__banner-img w-100 h-100">
                             <a href="{{ $banner2->link }}">
@@ -218,13 +218,13 @@
                 nextArrow:'<span class="Slick-Next"></span>',
                 easing:"linear",
                 responsive:[
-                {breakpoint:990,settings:{
+                {breakpoint:801,settings:{
                     slidesToShow:3,
                 }},
-                {breakpoint:801,settings:{
-                    slidesToShow:2,
-                }},
                 {breakpoint:641,settings:{
+                    slidesToShow:3,
+                }},
+                {breakpoint:481,settings:{
                     slidesToShow:1,
                 }},
                 ],

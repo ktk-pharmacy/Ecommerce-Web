@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Model\Advertisement;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
 
 class AdvertisementController extends Controller
 {
@@ -106,12 +107,15 @@ class AdvertisementController extends Controller
         $data['status'] = $request->has('status');
         $data['type'] = $type;
 
+
         $path = Advertisement::UPLOAD_PATH . "/" . $type . "/" . date("Y") . "/" . date("m") . "/";
 
         if ($request->hasFile('image')) {
-            $fileName = time().'.'.$request->image->extension();
-            $request->image->move(public_path($path), $fileName);
-            $data['image_url'] = $path . $fileName;
+                $fileName = time().'.'.$request->image->extension();
+                $request->image->move(public_path($path), $fileName);
+                $data['image_url'] = $path . $fileName;
+
+
         }
 
         Advertisement::findOrFail($id)->update($data);
