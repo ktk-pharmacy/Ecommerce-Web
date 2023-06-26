@@ -75,14 +75,14 @@
                             <div class="col-md-4 col-lg-3 col-sm-6 col-12">
                                 <div class="card mb-4" style="height:230px">
                                     <div class="row h-100 g-0">
-                                      <div class="col-6 col-sm-4">
+                                      <div class="col-6 col-sm-6">
                                         <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
                                       </div>
-                                      <div class="col-6 col-sm-8">
-                                        <div class="card-body h-100 d-flex flex-column">
-                                          <h6
+                                      <div class="col-6 col-sm-6">
+                                        <div class="card-body p-2 h-100 d-flex flex-column">
+                                          <p
                                           style="
-                                          color: #710ac2;
+                                          color: var(--ltn__secondary-color);
                                           font-family: sans-serif;
                                           "
                                            class="card-title">
@@ -92,18 +92,18 @@
                                                     <div><small class="">{{ $feature_product->name }} is currently out of stock</small></div>
                                                 @endif
                                             </a>
-                                          </h6>
+                                          </p>
                                           <div class="product-price">
                                             <span class="text-dark">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
                                             @if ($feature_product->discount)
-                                                <del style="color: #710ac2">{{ $feature_product->sale_price }}</del>
+                                                <del style="color: var(--ltn__secondary-color)">{{ $feature_product->sale_price }}</del>
                                             @endif
                                             </div>
                                             <a
                                                 href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
                                                 onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: #710ac2" class="btn mt-auto text-white px-2 py-1 mb-3 rounded-2">
-                                                ADD TO CART
+                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-2 py-1 mb-2 rounded-2">
+                                                <small>ADD TO CART</small>
                                             </a>
                                         </div>
                                       </div>
