@@ -10,9 +10,13 @@
     .main-slider {
         height: 60vh;
     }
+
+    .font-san {
+        font-family: sans-serif;
+    }
 </style>
     <!-- SLIDER AREA START (slider-3) -->
-    <div class="ltn__slider-area ltn__slider-3---  section-bg-1--- mt-30 main-slider mb-5">
+    <div class=" mt-30 main-slider mb-5">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-lg-12 h-100">
@@ -62,8 +66,8 @@
         <div class="px-5">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title">Big Sales</h1>
+                    <div class="text-center">
+                        <h3 class="section-title font-san">Hot Items</h3>
                     </div>
                 </div>
             </div>
@@ -73,19 +77,19 @@
                         @foreach ($feature_products as $feature_product)
                             <!-- ltn__product-item -->
                             <div class="col-md-4 col-lg-3 col-sm-6 col-12">
-                                <div class="card mb-4" style="height:230px">
+                                <div class="card mb-4 px-1" style="height:230px">
                                     <div class="row h-100 g-0">
-                                      <div class="col-6 col-sm-6">
+                                      <div class="col-6 pe-0 col-sm-6">
                                         <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
                                       </div>
-                                      <div class="col-6 col-sm-6">
-                                        <div class="card-body p-2 h-100 d-flex flex-column">
-                                          <p
+                                      <div class="col-6 col-sm-6 pe-2">
+                                        <div class="card-body h-100 pe-1 p-0 d-flex flex-column justify-content-center">
+                                          <b>
+                                            <p
                                           style="
                                           color: var(--ltn__secondary-color);
-                                          font-family: sans-serif;
                                           "
-                                           class="card-title">
+                                           class="card-title font-san">
                                             <a class='product-name' href="{{ route('frontend.products.detail', $feature_product->slug) }}">
                                                 {{ $feature_product->name }}
                                                 @if ($feature_product->stock == 0)
@@ -93,7 +97,8 @@
                                                 @endif
                                             </a>
                                           </p>
-                                          <div class="product-price">
+                                          </b>
+                                          <div class="product-price font-san">
                                             <span class="text-dark">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
                                             @if ($feature_product->discount)
                                                 <del style="color: var(--ltn__secondary-color)">{{ $feature_product->sale_price }}</del>
@@ -102,7 +107,7 @@
                                             <a
                                                 href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
                                                 onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-2 py-1 mb-2 rounded-2">
+                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-2 py-1 me-1 mb-2 rounded-2">
                                                 <small>ADD TO CART</small>
                                             </a>
                                         </div>
