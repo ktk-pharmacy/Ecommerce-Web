@@ -14,9 +14,9 @@
     .font-san {
         font-family: sans-serif;
     }
-    div.container {
+    /* div.container {
         margin-left: 0%;
-    }
+    } */
 </style>
     <!-- SLIDER AREA START (slider-3) -->
     <div class=" mt-30 main-slider mb-5">
@@ -65,7 +65,7 @@
     <!-- BANNER AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter  no-product-ratting pt-20--- pt-65  pb-70">
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting pt-20--- pt-65  pb-70">
         <div class="px-5">
             <div class="row">
                 <div class="col-lg-12">
@@ -79,8 +79,8 @@
                     <div class="row ">
                         @foreach ($feature_products as $feature_product)
                             <!-- ltn__product-item -->
-                            <div class="col-md-4 col-lg-3 col-sm-6 col-12">
-                                <div class="card mb-4 px-1" style="height:230px">
+                            <div class="col-md-6 p-1 col-lg-3 col-sm-12 mb-3">
+                                <div class="card mb-4 shadow px-1" style="height:230px">
                                     <div class="row h-100 g-0">
                                       <div class="col-6 pe-0 col-sm-6">
                                         <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
@@ -110,7 +110,7 @@
                                             <a
                                                 href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
                                                 onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-2 py-1 me-1 mb-2 rounded-2">
+                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-1 py-1 me-1 mb-2 rounded-2">
                                                 <small>ADD TO CART</small>
                                             </a>
                                         </div>
@@ -128,7 +128,7 @@
     </div>
     <!-- PRODUCT AREA END -->
 
-    <div class="Container mb-4 px-5">
+    <div class="Container container mb-4">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
         <div class="SlickCarousel">
@@ -147,7 +147,7 @@
         <!-- Carousel Container -->
     </div>
 
-    <div class="Container px-5">
+    <div class="Container container">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
         <div class="SlickCarousel">
