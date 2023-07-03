@@ -14,6 +14,9 @@
     .font-san {
         font-family: sans-serif;
     }
+    div.container {
+        margin-left: 0%;
+    }
 </style>
     <!-- SLIDER AREA START (slider-3) -->
     <div class=" mt-30 main-slider mb-5">
@@ -67,7 +70,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center">
-                        <h3 class="section-title font-san">Hot Items</h3>
+                        <h3 class="section-title font-san mb-4">Hot Items</h3>
                     </div>
                 </div>
             </div>
@@ -170,8 +173,8 @@
         <div class="container">
         <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title">SayAid's Collection</h1>
+                    <div class="section-title-area text-center">
+                        <h3 class="section-title font-san mb-4">SayAid's Collection</h3>
                     </div>
                 </div>
             </div>
