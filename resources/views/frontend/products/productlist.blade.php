@@ -78,11 +78,13 @@
                                                 <div class="product-img ">
                                                     <a href="{{ route('frontend.products.detail', $product->slug) }}"><img
                                                             src="{{ $product->feature_image }}" alt="#"></a>
-                                                    <div class="product-badge text-start">
-                                                        <ul>
-                                                            <li class="sale-badge">New</li>
-                                                        </ul>
-                                                    </div>
+                                                    @if ($product->is_new)
+                                                        <div class="product-badge text-start">
+                                                            <ul>
+                                                                <li class="sale-badge">New</li>
+                                                            </ul>
+                                                        </div>
+                                                    @endif
                                                     <div class="product-hover-action">
                                                         <ul>
                                                             <li>

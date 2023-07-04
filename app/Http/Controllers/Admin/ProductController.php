@@ -224,6 +224,9 @@ class ProductController extends Controller
         $request->validate([
             'file' => 'required'
         ]);
+
+        // dd($request->file);
+
         Excel::import(new ProductsImport, $request->file);
 
         return redirect()->route('admin.products.index')->with('success', 'Successfully imported!');

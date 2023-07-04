@@ -65,7 +65,7 @@
                         </td>
                         <td>{{ $product->brand->name }}</td>
                         <td>
-                           {{ $product->sub_category->parent->name . ' / ' . $product->sub_category->name }}
+                           {{ $product->sub_category->parent->name??'null' . ' / ' . $product->sub_category->name??'null' }}
                         </td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->sale_price }}</td>
