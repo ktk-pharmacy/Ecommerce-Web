@@ -14,15 +14,16 @@
     .font-san {
         font-family: sans-serif;
     }
-    /* div.container {
-        margin-left: 0%;
-    } */
+    div.container {
+        padding-left: 0;
+        padding-right: 0;
+    }
 </style>
     <!-- SLIDER AREA START (slider-3) -->
     <div class=" mt-30 main-slider mb-5">
         <div class="container h-100">
             <div class="row h-100">
-                <div class="col-lg-12 h-100">
+                <div class="col-md-12 mx-auto px-5 h-100">
                     <div id="carouselExampleIndicators" class="carousel slide h-100 mb-30" data-bs-ride="carousel">
                         <div class="carousel-inner h-100">
                         @foreach ($sliders as $key => $slider)
@@ -39,14 +40,13 @@
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area mt-120---">
-        <div class="container">
+        <div class="container px-1">
             <div
 
-             class="row ltn__custom-gutter--- justify-content-center">
+             class="row ltn__custom-gutter--- justify-content-center px-4">
                 @foreach ($banners1 as $banner1)
                     <div
                     style="
-                    width: 400px;
                     height:320px
                     "
                      class="col-lg-4 col-sm-6 mb-4">
@@ -131,7 +131,7 @@
     <div class="Container container mb-4">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
-        <div class="SlickCarousel">
+        <div class="SlickCarousel px-4">
             @foreach ($left_sidebars as $left_sidebar)
             <div class="ProductBlock mx-3">
                 <div class="Content">
@@ -150,7 +150,7 @@
     <div class="Container container">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
-        <div class="SlickCarousel">
+        <div class="SlickCarousel px-4">
           <!-- Item -->
            @foreach ($secondSliders as $secondSlider)
             <div class="ProductBlock mx-3">
@@ -170,7 +170,7 @@
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area pt-50 mt-120---">
-        <div class="container">
+        <div class="container px-1">
         <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
@@ -178,11 +178,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row ltn__custom-gutter--- justify-content-center mb-5">
+            <div class="row ltn__custom-gutter--- justify-content-center mb-5 px-4">
                 @foreach ($banners2 as $banner2)
                 <div
                 style="
-                width: 400px;
                 height:320px"
                  class="col-lg-4 col-sm-6 mb-4">
                     <div class="ltn__banner-item w-100 h-100">
