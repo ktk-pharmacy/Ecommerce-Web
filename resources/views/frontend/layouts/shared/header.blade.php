@@ -99,7 +99,7 @@
     <!-- ltn__header-top-area end -->
     <!-- ltn__header-middle-area start -->
     <div class="ltn__header-middle-area">
-       <div class="container">
+       <div class="container px-5">
           <div class="row">
              <div class="col">
                 <div class="site-logo">
@@ -243,8 +243,8 @@
     <!-- header-bottom-area start -->
     <div
        class="header-bottom-area ltn__border-top--- ltn__header-sticky  ltn__sticky-bg-white ltn__primary-bg---- menu-color-white---- d-none--- d-lg-block">
-       <div class="container">
-          <div class="row">
+       <div class="container px-4">
+          <div class="row px-2">
              <div class="col-lg-3 align-self-center">
                 <!-- CATEGORY-MENU-LIST START -->
                 <div class="ltn__category-menu-wrap ltn__category-dropdown-hide ltn__category-menu-with-header-menu">

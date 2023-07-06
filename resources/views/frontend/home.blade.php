@@ -80,7 +80,7 @@
                         @foreach ($feature_products as $feature_product)
                             <!-- ltn__product-item -->
                             <div class="col-md-6 p-1 col-lg-3 col-sm-12 mb-3">
-                                <div class="card mb-4 shadow px-1" style="height:230px">
+                                <div class="card mb-4 shadow px-1" style="height:265px">
                                     <div class="row h-100 g-0">
                                       <div class="col-6 pe-0 col-sm-6">
                                         <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
