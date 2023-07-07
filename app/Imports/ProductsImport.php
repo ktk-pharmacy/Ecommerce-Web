@@ -31,7 +31,7 @@ class ProductsImport implements ToModel, WithHeadingRow
         $category = Category::where('name',$row['category'], '-')->first();
         return new Product([
             'name' => $row['name'],
-            'feature_image' => 'assets/theme/img/sayaid2.png',
+            'feature_image' => $row['feature_image']??'assets/theme/img/sayaid2.png',
             'slug' => $this->generateSlug($row['name'], 'products'),
             'brand_id' => $brand?$brand->id:158,
             'category_id' => $category?$category->id:196,
