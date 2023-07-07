@@ -23,6 +23,7 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping {
         return [
             'Name',
             'Brand',
+            'feature_image',
             'Category',
             'Description',
             'Detail',
@@ -44,6 +45,7 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping {
         return [
             $item->name,
             $item->brand->name,
+            $item->feature_image,
             $item->sub_category->name,
             strip_tags(preg_replace("/&#?[a-z0-9]+;/i","",$item->description)),
             strip_tags(preg_replace("/&#?[a-z0-9]+;/i","",$item->detail)),

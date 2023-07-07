@@ -40,7 +40,7 @@
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area mt-120---">
-        <div class="container px-1">
+        <div class="container px-2">
             <div
 
              class="row ltn__custom-gutter--- justify-content-center px-4">
@@ -81,7 +81,7 @@
                             <!-- ltn__product-item -->
                             <div class="col-md-6 p-1 col-lg-3 col-sm-12 mb-3">
                                 <div class="card mb-4 shadow px-1" style="height:265px">
-                                    <div class="row h-100 g-0">
+                                    <div class="row h-100 g-0 ">
                                       <div class="col-6 pe-0 col-sm-6">
                                         <img src="{{ $feature_product->feature_image }}" class="img-fluid w-100 h-100 rounded-start" alt="...">
                                       </div>
@@ -170,7 +170,7 @@
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area pt-50 mt-120---">
-        <div class="container px-1">
+        <div class="container px-2">
         <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area text-center">
