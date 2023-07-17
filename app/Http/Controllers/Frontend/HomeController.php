@@ -22,7 +22,7 @@ class HomeController extends Controller
         $banners2 = $advertisements->where('type', Advertisement::BANNER_2);
         $secondSliders = $advertisements->where('type', Advertisement::SECOND_SLIDER);
         $products = Product::active()->latest()->get();
-        $feature_products = $products->slice(0, 8);
+        $feature_products = $products->slice(0, 12);
         $new_products = $products->where('is_new', true);
 
         $blogs = Post::with('author', 'terms')->active()->latest()->limit(6)->get();
