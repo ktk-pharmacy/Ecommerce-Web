@@ -71,6 +71,12 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="product-code">Product Code <span class="text-danger">*</span></label>
+                            <input type="text" name="product_code" id="product-code" class="form-control"
+                                value="{{ $product->product_code }}" placeholder="Enter Product Code" autofocus required>
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="product-category">Categories <span class="text-danger">*</span></label>
                             <select class="form-control select2" name="category_id" id="product-category" required>
                                 <option value="">--Select Category--</option>

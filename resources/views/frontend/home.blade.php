@@ -39,7 +39,7 @@
     <!-- SLIDER AREA END -->
 
     <!-- BANNER AREA START -->
-    <div class="ltn__banner-area mt-120---">
+    <div class="ltn__banner-area ">
         <div class="container px-2">
             <div
 
@@ -65,7 +65,7 @@
     <!-- BANNER AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting pt-20--- pt-65">
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
         <div class="px-5">
             <div class="row">
                 <div class="col-lg-12">
@@ -129,7 +129,7 @@
     <!-- PRODUCT AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting pt-5  pb-5">
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
         <div class="px-5">
             <div class="row">
                 <div class="col-lg-12">
