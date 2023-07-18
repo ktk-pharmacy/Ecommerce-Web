@@ -61,7 +61,7 @@
 
                <div class="form-group mb-3">
                   <label for="product-name">Product Name <span class="text-danger">*</span></label>
-                  <input type="text" name="name" id="product-name" class="form-control" placeholder="Name" autofocus
+                  <input type="text" name="name" id="product-name" class="form-control" placeholder="Enter Product Code" autofocus
                      required>
                </div>
 
