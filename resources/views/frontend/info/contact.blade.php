@@ -20,7 +20,11 @@
                             <img src="{{ asset('assets/theme/img/icons/11.png') }}" alt="Icon Image">
                         </div>
                         <h3>Phone Number</h3>
-                        <p>{{ config('settings.default_phone_number') }}</p>
+                        <p>@if (session()->get('locale') == 'mm')
+                            {{ config('settings.default_phone_number_mm') }}
+                        @else
+                            {{ config('settings.default_phone_number') }}
+                        @endif</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -29,7 +33,11 @@
                             <img src="{{ asset('assets/theme/img/icons/12.png') }}" alt="Icon Image">
                         </div>
                         <h3>Office Address</h3>
-                        <p>{{ config('settings.default_address') }}</p>
+                        <p>@if (session()->get('locale') == 'mm')
+                            {{ config('settings.default_address_mm') }}
+                        @else
+                        {{ config('settings.default_address') }}
+                        @endif</p>
                     </div>
                 </div>
             </div>

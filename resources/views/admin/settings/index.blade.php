@@ -78,9 +78,25 @@
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <div class="col-md-6 col-sm-6">
+                                                    <label for="site_name_mm" class="form-label">Site Name MM</label>
+                                                    <input type="text" name="site_name_mm"
+                                                        value="{{ config('settings.site_name_mm') }}" id="site_name_mm"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-6 col-sm-6">
                                                     <label for="site_title" class="form-label">Site Title</label>
                                                     <input type="text" name="site_title"
                                                         value="{{ config('settings.site_title') }}" id="site_title"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <label for="site_title_mm" class="form-label">Site Title MM</label>
+                                                    <input type="text" name="site_title_mm"
+                                                        value="{{ config('settings.site_title_mm') }}" id="site_title_mm"
                                                         class="form-control">
                                                 </div>
                                             </div>
@@ -113,10 +129,28 @@
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <div class="col-md-6 col-sm-6">
+                                                    <label for="default_phone_number" class="form-label">Phone
+                                                        Number MM</label>
+                                                    <input type="text" name="default_phone_number_mm"
+                                                        value="{{ config('settings.default_phone_number_mm') }}"
+                                                        id="default_phone_number_mm" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-6 col-sm-6">
                                                     <label for="default_address" class="form-label">Address</label>
                                                     <textarea type="text" name="default_address" id="default_address" class="form-control" rows="6">{{ config('settings.default_address') }}</textarea>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group row mb-3">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <label for="default_address_mm" class="form-label">Address MM</label>
+                                                    <textarea type="text" name="default_address_mm" id="default_address_mm" class="form-control" rows="6">{{ config('settings.default_address_mm') }}</textarea>
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row mb-3">
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="default_location" class="form-label">Location
@@ -199,7 +233,12 @@
                                                         value="{{ config('settings.bonous_1_title')??'title 1' }}"
                                                         id="bonous_1_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_1_title_mm"
+                                                        value="{{ config('settings.bonous_1_title_mm')??'title 1 MM' }}"
+                                                        id="bonous_1_title_mm" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_1_txt" id="bonous_1_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_1_txt')??'text 1' }}</textarea>
+                                                        <textarea type="text" name="bonous_1_txt" id="bonous_1_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_1_txt_mm')??'text 1 mm' }}</textarea>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 2</label>
@@ -211,7 +250,13 @@
                                                         value="{{ config('settings.bonous_2_title')??'Title 2' }}"
                                                         id="bonous_2_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_2_title_mm"
+                                                        value="{{ config('settings.bonous_2_title_mm')??'Title 2 MM' }}"
+                                                        id="bonous_2_title" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_2_txt" id="bonous_2_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_2_txt')??'Text 2' }}</textarea>
+                                                        <textarea type="text" name="bonous_2_txt" id="bonous_2_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_2_txt_mm')??'Text 2 mm' }}</textarea>
+
                                                 </div>
                                             </div>
 
@@ -226,7 +271,13 @@
                                                         value="{{ config('settings.bonous_3_title')??'title 3' }}"
                                                         id="bonous_3_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_3_title_mm"
+                                                        value="{{ config('settings.bonous_3_title_mm')??'title 3 mm' }}"
+                                                        id="bonous_3_title_mm" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_3_txt" id="bonous_3_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_3_txt')??'text 3' }}</textarea>
+                                                        <textarea type="text" name="bonous_3_txt_mm" id="bonous_3_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_3_txt_mm')??'text 3 MM' }}</textarea>
+
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 4</label>
@@ -238,7 +289,12 @@
                                                         value="{{ config('settings.bonous_4_title')??'Title 4' }}"
                                                         id="bonous_4_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_4_title_mm"
+                                                        value="{{ config('settings.bonous_4_title_mm')??'Title 4 MM' }}"
+                                                        id="bonous_4_title_mm" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_4_txt" id="bonous_4_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_4_txt')??'Text 4' }}</textarea>
+                                                        <textarea type="text" name="bonous_4_txt" id="bonous_4_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_4_txt_mm')??'Text 4 MM' }}</textarea>
                                                 </div>
                                             </div>
 
@@ -253,7 +309,12 @@
                                                         value="{{ config('settings.bonous_5_title')??'title 5' }}"
                                                         id="bonous_5_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_5_title_mm"
+                                                        value="{{ config('settings.bonous_5_title_mm')??'title 5 mm' }}"
+                                                        id="bonous_5_title_mm" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_5_txt" id="bonous_5_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_5_txt')??'text 5' }}</textarea>
+                                                        <textarea type="text" name="bonous_5_txt_mm" id="bonous_5_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_5_txt_mm')??'text 5 mm' }}</textarea>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 6</label>
@@ -265,7 +326,12 @@
                                                         value="{{ config('settings.bonous_6_title')??'Title 6' }}"
                                                         id="bonous_6_title" class="form-control mt-1">
 
+                                                        <input type="text" name="bonous_6_title_mm"
+                                                        value="{{ config('settings.bonous_6_title_mm')??'Title 6 MM' }}"
+                                                        id="bonous_6_title_mm" class="form-control mt-1">
+
                                                         <textarea type="text" name="bonous_6_txt" id="bonous_6_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_6_txt')??'Text 6' }}</textarea>
+                                                        <textarea type="text" name="bonous_6_txt_mm" id="bonous_6_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_6_txt_mm')??'Text 6 Mm' }}</textarea>
                                                 </div>
                                             </div>
                                         </div>

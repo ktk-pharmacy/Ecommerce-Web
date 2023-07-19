@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(SettingsTableSeeder::class);
         // $this->call(AdditionPermissionSeeder::class);
         // $this->call(BonousSeeder::class);
-        $this->call(AdditionalAdsSliderSeeder::class);
+        // $this->call(AdditionalAdsSliderSeeder::class);
+        $this->call(MyanmarSettingsSeeder::class);
     }
 }

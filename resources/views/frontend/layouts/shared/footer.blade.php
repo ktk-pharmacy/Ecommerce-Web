@@ -17,7 +17,13 @@
                               <i class="icon-placeholder"></i>
                            </div>
                            <div class="footer-address-info">
-                              <p>{{ config('settings.default_address') }}</p>
+                              <p>
+                                @if (session()->get('locale') == 'mm')
+                                {{ config('settings.default_address_mm') }}
+                                @else
+                                {{ config('settings.default_address') }}
+                                @endif
+                                </p>
                            </div>
                         </li>
                         <li>
@@ -27,7 +33,11 @@
                            <div class="footer-address-info">
                               <p>
                                  <a href="tel:{{ config('settings.default_phone_number') }}">
-                                    {{ config('settings.default_phone_number') }}
+                                    @if (session()->get('locale') == 'mm')
+                                        {{ config('settings.default_phone_number_mm') }}
+                                    @else
+                                        {{ config('settings.default_phone_number') }}
+                                    @endif
                                  </a>
                               </p>
                            </div>

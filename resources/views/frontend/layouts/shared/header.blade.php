@@ -118,7 +118,12 @@
                          <h6>Phone</h6>
                          <p>
                             <a href="tel:{{ config('settings.default_phone_number') }}">
-                               {{ config('settings.default_phone_number') }}
+                                @if (session()->get('locale') == 'mm')
+                                    {{ config('settings.default_phone_number_mm') }}
+                                @else
+                                    {{ config('settings.default_phone_number') }}
+                                @endif
+
                             </a>
                          </p>
                       </div>
@@ -407,7 +412,11 @@
                 <div class="header-contact-info text-end">
                    <a class="font-weight-6 ltn__primary-color" href="tel:{{ config('settings.default_phone_number') }}"><span class="ltn__secondary-color"><i
                             class="icon-call font-weight-7"></i></span>
-                     {{ config('settings.default_phone_number') }}</a>
+                            @if (session()->get('locale') == 'mm')
+                            {{ config('settings.default_phone_number_mm') }}
+                        @else
+                            {{ config('settings.default_phone_number') }}
+                        @endif</a>
                 </div>
              </div>
           </div>
