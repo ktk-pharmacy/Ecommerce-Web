@@ -238,7 +238,7 @@
                                                         id="bonous_1_title_mm" class="form-control mt-1">
 
                                                         <textarea type="text" name="bonous_1_txt" id="bonous_1_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_1_txt')??'text 1' }}</textarea>
-                                                        <textarea type="text" name="bonous_1_txt" id="bonous_1_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_1_txt_mm')??'text 1 mm' }}</textarea>
+                                                        <textarea type="text" name="bonous_1_txt_mm" id="bonous_1_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_1_txt_mm')??'text 1 mm' }}</textarea>
                                                 </div>
                                                 <div class="col-md-6 col-sm-6">
                                                     <label for="bonous_1_img" class="form-label">Bonous 2</label>
@@ -255,7 +255,7 @@
                                                         id="bonous_2_title" class="form-control mt-1">
 
                                                         <textarea type="text" name="bonous_2_txt" id="bonous_2_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_2_txt')??'Text 2' }}</textarea>
-                                                        <textarea type="text" name="bonous_2_txt" id="bonous_2_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_2_txt_mm')??'Text 2 mm' }}</textarea>
+                                                        <textarea type="text" name="bonous_2_txt_mm" id="bonous_2_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_2_txt_mm')??'Text 2 mm' }}</textarea>
 
                                                 </div>
                                             </div>
@@ -294,7 +294,7 @@
                                                         id="bonous_4_title_mm" class="form-control mt-1">
 
                                                         <textarea type="text" name="bonous_4_txt" id="bonous_4_txt" class="form-control mt-1" rows="6">{{ config('settings.bonous_4_txt')??'Text 4' }}</textarea>
-                                                        <textarea type="text" name="bonous_4_txt" id="bonous_4_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_4_txt_mm')??'Text 4 MM' }}</textarea>
+                                                        <textarea type="text" name="bonous_4_txt_mm" id="bonous_4_txt_mm" class="form-control mt-1" rows="6">{{ config('settings.bonous_4_txt_mm')??'Text 4 MM' }}</textarea>
                                                 </div>
                                             </div>
 
