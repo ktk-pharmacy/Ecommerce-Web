@@ -239,20 +239,13 @@
                     <aside class="sidebar ltn__shop-sidebar ltn__right-sidebar">
                         <!-- Category Widget -->
                         <div class="widget ltn__menu-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border">Product categories</h4>
+                            <h4 class="ltn__widget-title ltn__widget-title-border">Product Brands</h4>
 
                             <ul>
                                 <div class="ltn__utilize-menu">
-                                    @foreach ($main_categories as $index => $main_category)
+                                    @foreach (App\Model\Brand::all() as $brand)
                                         <ul>
-                                            <li><a href="#">{{ $main_category->name }} </a>
-                                                @foreach ($main_category->childs as $sub_category)
-                                                    <ul class="sub-menu">
-                                                        <li><a
-                                                                href="{{ route('frontend.products.index') . '?category=' . $sub_category->id }}">-
-                                                                - {{ $sub_category->name }}</a></li>
-                                                    </ul>
-                                                @endforeach
+                                            <li><a href="{{ route('frontend.products.index') }}?brand={{ $brand->id }}">{{ $brand->name }} </a>
                                             </li>
                                         </ul>
                                     @endforeach

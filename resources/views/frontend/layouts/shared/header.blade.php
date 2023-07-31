@@ -261,6 +261,7 @@
                    <div class="ltn__category-menu-toggle ltn__one-line-active">
                       @php
                          $category_groups = getMenuCategories();
+
                       @endphp
                       <ul>
                          @foreach ($category_groups as $index => $category_group)

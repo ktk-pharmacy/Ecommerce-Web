@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Model\Category;
+use App\Model\CategoryGroup;
 use App\Model\Product;
 use Illuminate\Http\Request;
 
@@ -41,6 +42,18 @@ class ProductController extends Controller
         $main_categories = Category::has('categoryProducts')->with(['childs' => function ($q) {
             $q->has('products');
         }])->get();
+
+        if ($request->group) {
+            $products = Product::whereHas('sub_category.parent.group', function ($query) use ($request) {
+                $query->where('id', $request->group);
+            })->publish()->latest()->paginate(12)->withQueryString();
+            $main_categories = CategoryGroup::find($request->group)->mainCategories;
+        }
+
+        if ($request->brand) {
+            $products = Product::where('brand_id',$request->brand)->publish()->latest()->paginate(12)->withQueryString();
+            return view('frontend.products.productlist-brand', compact('products', 'main_categories'));
+        }
 
         return view('frontend.products.productlist', compact('products', 'main_categories'));
     }

@@ -99,14 +99,12 @@
                   type="file"
                   name="image"
                   id="image"
-                  data-max-file-size="500K"
-                  data-max-width="1408"
-                  data-max-height="993"
+                  data-max-file-size="2000K"
                   data-allowed-formats="landscape"
                   data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'
                   required
                >
-               <p class="sub-header mt-2">file size is under 500KB, max Width x Height is 1408 X 993 and Landscape only</p>
+               <p class="sub-header mt-2">file size is under 2MB, will be 2:1 and Landscape only</p>
 
                <div class="form-group mt-3 mb-0">
                   <label for="status">Active</label>

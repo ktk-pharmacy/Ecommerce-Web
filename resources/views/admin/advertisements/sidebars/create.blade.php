@@ -78,7 +78,6 @@
                            name="image"
                            id="image"
                            data-allowed-file-extensions='["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"]'>
-                           <p class="sub-header mt-2">file size is under 500KB, max Width x Height is 600 X 701 and Portrait only</p>
                      </div>
                   </div>
 

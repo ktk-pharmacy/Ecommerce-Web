@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // $this->call(AdditionPermissionSeeder::class);
         // $this->call(BonousSeeder::class);
         // $this->call(AdditionalAdsSliderSeeder::class);
-        $this->call(MyanmarSettingsSeeder::class);
+        // $this->call(MyanmarSettingsSeeder::class);
+        $this->call(NewBannerSeeder::class);
     }
 }
