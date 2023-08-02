@@ -66,6 +66,10 @@
     color: #fff;
 }
 
+h3 {
+    text-align: left !important;
+}
+
 </style>
     <!-- SLIDER AREA START (slider-3) -->
     <div class=" mt-30 main-slider mb-5">
@@ -88,7 +92,7 @@
 
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area ">
-        <div class="container px-2">
+        <div class="container px-3">
             <div
              class="row ltn__custom-gutter--- justify-content-center px-4">
                 @foreach ($banners1 as $banner1)
@@ -153,7 +157,8 @@
     </div>
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+    @if (count($feature_products)>0)
+        <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
         <div class="px-5">
             <div class="row">
                 <div class="col-lg-12">
@@ -238,6 +243,7 @@
                 </div>
             </div>
         </div>
+    @endif
 
 
     </div>
@@ -324,11 +330,19 @@
 
     </div>
     <!-- PRODUCT AREA END -->
-
-    <div class="text-center">
-        <h3 class="section-title font-san mb-4">Best Selling Items</h3>
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+    <div class="px-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <h3 class="section-title font-san mb-0">Best Selling Items</h3>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="Container container mt-4 mb-3">
+    </div>
+
+    <div class="Container container mt-4 mb-4">
         <div class="SlickCarousel px-4">
             @foreach ($left_sidebars as $left_sidebar)
             <div class="ProductBlock mx-2">
@@ -345,7 +359,7 @@
         <!-- Carousel Container -->
     </div>
 
-    <div class="Container container">
+    <div class="Container container pt-2">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
         <div class="SlickCarousel px-4">
@@ -367,19 +381,23 @@
     </div>
 
     <!-- BANNER AREA START -->
-    <div class="ltn__banner-area mt-2">
+    <div class="ltn__banner-area mt-3">
         <div class="container px-2">
-        <div class="row">
-                <div class="col-lg-12">
-                    <div class=" text-center">
-                        <h3 class="section-title font-san ">SayAid's Collection</h3>
+            <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+                <div class="px-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="text-center">
+                                <h3 class="section-title font-san mb-4">SayAid's Collection</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="Container container mt-4 mb-3">
+            <div class="Container container mt-2 mb-3">
                 {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
                 <!-- Carousel Container -->
-                <div class="SlickCarousel px-4">
+                <div class="SlickCarousel px-3">
                     @foreach ($banners2 as $left_sidebar)
                     <div class="ProductBlock mx-2">
                         <div class="Content">
@@ -399,8 +417,16 @@
     </div>
     <!-- BANNER AREA END -->
 
-    <div class="text-center">
-        <h3 class="section-title font-san mb-4">Product Brands</h3>
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+        <div class="px-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <h3 class="section-title font-san mb-3">Product Brands</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="Container container mt-4 mb-3">
         <div class="SlickCarousel2 px-4">
