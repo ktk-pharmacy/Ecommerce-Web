@@ -72,7 +72,7 @@ h3 {
 
 </style>
     <!-- SLIDER AREA START (slider-3) -->
-    <div class=" mt-30 main-slider mb-5">
+    <div class="main-slider">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-md-12 mx-auto px-5 h-100">
@@ -91,7 +91,7 @@ h3 {
     <!-- SLIDER AREA END -->
 
     <!-- BANNER AREA START -->
-    <div class="ltn__banner-area ">
+    <div class="ltn__banner-area mt-4 pt-2">
         <div class="container px-3">
             <div
              class="row ltn__custom-gutter--- justify-content-center px-4">
