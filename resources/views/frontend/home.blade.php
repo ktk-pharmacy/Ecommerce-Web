@@ -68,6 +68,7 @@
 
 h3 {
     text-align: left !important;
+    font-size: 35px !important;
 }
 
 </style>
@@ -114,11 +115,11 @@ h3 {
         </div>
     </div>
     <!-- BANNER AREA END -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-        <div class="px-5">
+    <div class="ltn__product-area ltn__product-gutter container no-product-ratting mb-2">
+        <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-center">
+                    <div class="text-center px-2">
                         <h3 class="section-title font-san mb-4">Categories</h3>
                     </div>
                 </div>
@@ -128,28 +129,30 @@ h3 {
                     @php
                          $category_groups = getMenuCategories();
                     @endphp
-                    <div class="row ">
-                        @foreach ($category_groups as $index => $group)
-                            <!-- ltn__product-item -->
-                            @if ($index != 6)
-                            <div class="col-md-2 mb-3 px-2">
-                                <div class="card " style="">
-                                    <div class="px-4 fullwrap">
-                                        <img src="{{ $group->image_url }}" class="card-img-top" alt="...">
-                                    </div>
-                                    <div class="card-body d-flex justify-content-center align-items-center">
+                    <div class="px-3">
+                        <div class="row ">
+                            @foreach ($category_groups as $index => $group)
+                                <!-- ltn__product-item -->
+                                @if ($index != 6)
+                                <div class="col-md-2 mb-3 px-2">
+                                    <div class="card " style="">
+                                        <div class="px-4 fullwrap">
+                                            <img src="{{ $group->image_url }}" class="card-img-top" alt="...">
+                                        </div>
+                                        <div class="card-body d-flex justify-content-center align-items-center">
 
-                                      <a href="{{ route('frontend.products.index') }}?group={{ $group->id }}">
-                                        <h6 style="line-height: 15px" class="d-block font-san mb-1">
-                                            {{ $group->name}}
-                                          </h6>
-                                      </a>
+                                          <a href="{{ route('frontend.products.index') }}?group={{ $group->id }}">
+                                            <h6 style="line-height: 15px" class="d-block font-san mb-1">
+                                                {{ $group->name}}
+                                              </h6>
+                                          </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            @endif
+                                @endif
 
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -158,87 +161,89 @@ h3 {
 
     <!-- PRODUCT AREA START (product-item-3) -->
     @if (count($feature_products)>0)
-        <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-        <div class="px-5">
+        <div class="ltn__product-area ltn__product-gutter container no-product-ratting mb-2">
+        <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-center">
+                    <div class="text-center px-2">
                         <h3 class="section-title font-san mb-4">Promotion Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row ">
-                        @foreach ($feature_products as $feature_product)
-                            <!-- ltn__product-item -->
-                            <div class="col-md-2 mb-3 px-2">
-                                <div class="card " style="
-                                height:275px
-                                ">
-                                    <div class="px-4 fullwrap">
-                                        <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
-                                        <div class="fullcap">
+            <div class="px-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row ">
+                            @foreach ($feature_products as $feature_product)
+                                <!-- ltn__product-item -->
+                                <div class="col-md-2 mb-3 px-2">
+                                    <div class="card " style="
+                                    height:275px
+                                    ">
+                                        <div class="px-4 fullwrap">
+                                            <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
+                                            <div class="fullcap">
 
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                                        <i class="far fa-eye"></i>
-                                                    </a>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                                            <i class="far fa-eye"></i>
+                                                        </a>
 
-                                                </div>
-                                                <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
-                                                    <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                        title="Add to Cart"
-                                                        onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                        data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
-                                                        <i class="fas fa-shopping-cart"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                        title="Wishlist"
-                                                        onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
-                                                        data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
-                                                        data-bs-target="#liton_wishlist_modal">
-                                                        <i class="far fa-heart"></i></a>
-                                                </div>
+                                                    </div>
+                                                    <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
+                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                            title="Add to Cart"
+                                                            onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                            data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
+                                                            <i class="fas fa-shopping-cart"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                            title="Wishlist"
+                                                            onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
+                                                            data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
+                                                            data-bs-target="#liton_wishlist_modal">
+                                                            <i class="far fa-heart"></i></a>
+                                                    </div>
 
+                                            </div>
+                                            {{-- <div class="">
+                                                <a
+                                                    href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
+                                                    onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                    data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" class="me-2">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                                </a>
+
+                                                <a href="" title="{{ $feature_product->name }}">
+                                                    <i class="fas fa-info-circle"></i>
+                                                </a>
+                                            </div> --}}
                                         </div>
-                                        {{-- <div class="">
-                                            <a
-                                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
-                                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" class="me-2">
-                                                <i class="fas fa-shopping-cart"></i>
-                                            </a>
-
-                                            <a href="" title="{{ $feature_product->name }}">
-                                                <i class="fas fa-info-circle"></i>
-                                            </a>
-                                        </div> --}}
-                                    </div>
-                                    <div class="card-body px-2">
-                                      <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                        <small style="line-height: 15px" class="d-block font-san mb-1">
-                                            {{ $feature_product->name }}
-                                          </small>
-                                      </a>
-                                        <div class="product-price font-san">
-                                            <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
-                                            @if ($feature_product->discount)
-                                                <del class="text-blue">{{ $feature_product->sale_price }}</del>
-                                            @endif
+                                        <div class="card-body px-2">
+                                          <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                            <small style="line-height: 15px" class="d-block font-san mb-1">
+                                                {{ $feature_product->name }}
+                                              </small>
+                                          </a>
+                                            <div class="product-price font-san">
+                                                <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
+                                                @if ($feature_product->discount)
+                                                    <del class="text-blue">{{ $feature_product->sale_price }}</del>
+                                                @endif
+                                            </div>
+                                          {{-- <a
+                                                    href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
+                                                    onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                    data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-1 py-1 me-1 mb-2 rounded-2">
+                                                    <i class="fas fa-shopping-cart"></i>
+                                            </a> --}}
                                         </div>
-                                      {{-- <a
-                                                href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}" title="Add to Cart"
-                                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}" style="background-color: var(--ltn__secondary-color)" class="btn mt-auto text-white px-1 py-1 me-1 mb-2 rounded-2">
-                                                <i class="fas fa-shopping-cart"></i>
-                                        </a> --}}
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -251,77 +256,79 @@ h3 {
 
     <!-- PRODUCT AREA START (product-item-3) -->
     <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-        <div class="px-5">
+        <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-center">
+                    <div class="text-center px-2">
                         <h3 class="section-title font-san mb-4">New Arrival Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row ">
+            <div class="px-3">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="row ">
 
-                        @foreach ($new_products as $feature_product)
-                            <!-- ltn__product-item -->
-                            <div class="col-md-2 mb-3 px-2">
-                                <div class="card " style="
-                                height:275px
-                                ">
-                                    <div class="px-4 fullwrap">
-                                        <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
-                                        @if ($feature_product->is_new)
-                                        <small class=" d-inline-block product-badge">
-                                            <ul>
-                                                <li class="sale-badge">New</li>
-                                            </ul>
-                                        </small>
-                                        @endif
-                                        <div class="fullcap">
+                            @foreach ($new_products as $feature_product)
+                                <!-- ltn__product-item -->
+                                <div class="col-md-2 mb-3 px-2">
+                                    <div class="card " style="
+                                    height:275px
+                                    ">
+                                        <div class="px-4 fullwrap">
+                                            <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
+                                            @if ($feature_product->is_new)
+                                            <small class=" d-inline-block product-badge">
+                                                <ul>
+                                                    <li class="sale-badge">New</li>
+                                                </ul>
+                                            </small>
+                                            @endif
+                                            <div class="fullcap">
 
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                                        <i class="far fa-eye"></i>
-                                                    </a>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                                            <i class="far fa-eye"></i>
+                                                        </a>
 
-                                                </div>
-                                                <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
-                                                    <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                        title="Add to Cart"
-                                                        onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                        data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
-                                                        <i class="fas fa-shopping-cart"></i>
-                                                    </a>
-                                                </div>
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                        title="Wishlist"
-                                                        onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
-                                                        data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
-                                                        data-bs-target="#liton_wishlist_modal">
-                                                        <i class="far fa-heart"></i></a>
-                                                </div>
+                                                    </div>
+                                                    <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
+                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                            title="Add to Cart"
+                                                            onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                            data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
+                                                            <i class="fas fa-shopping-cart"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                            title="Wishlist"
+                                                            onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
+                                                            data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
+                                                            data-bs-target="#liton_wishlist_modal">
+                                                            <i class="far fa-heart"></i></a>
+                                                    </div>
+
+                                            </div>
 
                                         </div>
-
-                                    </div>
-                                    <div class="card-body px-2">
-                                      <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                        <small style="line-height: 15px" class="d-block font-san mb-1">
-                                            {{ $feature_product->name }}
-                                          </small>
-                                      </a>
-                                        <div class="product-price font-san">
-                                            <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
-                                            @if ($feature_product->discount)
-                                                <del class="text-blue">{{ $feature_product->sale_price }}</del>
-                                            @endif
+                                        <div class="card-body px-2">
+                                          <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                            <small style="line-height: 15px" class="d-block font-san mb-1">
+                                                {{ $feature_product->name }}
+                                              </small>
+                                          </a>
+                                            <div class="product-price font-san">
+                                                <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
+                                                @if ($feature_product->discount)
+                                                    <del class="text-blue">{{ $feature_product->sale_price }}</del>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
@@ -331,10 +338,10 @@ h3 {
     </div>
     <!-- PRODUCT AREA END -->
     <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-    <div class="px-5">
+    <div class="px-4">
         <div class="row">
             <div class="col-lg-12">
-                <div class="text-center">
+                <div class="text-center px-2">
                     <h3 class="section-title font-san mb-0">Best Selling Items</h3>
                 </div>
             </div>
@@ -384,11 +391,11 @@ h3 {
     <div class="ltn__banner-area mt-3">
         <div class="container px-2">
             <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-                <div class="px-5">
+                <div class="px-4">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="text-center">
-                                <h3 class="section-title font-san mb-4">SayAid's Collection</h3>
+                            <div class="text-center px-2">
+                                <h3 class="section-title font-san mb-3">SayAid's Collection</h3>
                             </div>
                         </div>
                     </div>
@@ -418,10 +425,10 @@ h3 {
     <!-- BANNER AREA END -->
 
     <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-        <div class="px-5">
+        <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="text-center">
+                    <div class="text-center px-2">
                         <h3 class="section-title font-san mb-3">Product Brands</h3>
                     </div>
                 </div>
