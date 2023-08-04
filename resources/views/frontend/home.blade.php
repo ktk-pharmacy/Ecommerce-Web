@@ -136,7 +136,7 @@ h3 {
                                 @if ($index != 6)
                                 <div class="col-md-2 mb-3 px-2">
                                     <div class="card " style="">
-                                        <div class="px-4 fullwrap">
+                                        <div class="fullwrap">
                                             <img src="{{ $group->image_url }}" class="card-img-top" alt="...">
                                         </div>
                                         <div class="card-body d-flex justify-content-center align-items-center">
