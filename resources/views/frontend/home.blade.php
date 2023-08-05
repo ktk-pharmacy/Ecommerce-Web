@@ -68,16 +68,29 @@
 
 h3 {
     text-align: left !important;
-    font-size: 35px !important;
+    font-size: 16px !important;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin:0;
+}
+
+.mb-2cm {
+    margin-bottom: 75.6px;
+}
+.mb-1cm {
+    margin-bottom: 37.8px;
+}
+.mt-1cm {
+    margin-top: 37.8px;
 }
 
 </style>
     <!-- SLIDER AREA START (slider-3) -->
-    <div class="main-slider">
+    <div class="main-slider mb-1cm">
         <div class="container h-100">
             <div class="row h-100">
                 <div class="col-md-12 mx-auto px-5 h-100">
-                    <div id="carouselExampleIndicators" class="carousel slide h-100 mb-30" data-bs-ride="carousel">
+                    <div id="carouselExampleIndicators" class="carousel slide h-100" data-bs-ride="carousel">
                         <div class="carousel-inner h-100">
                         @foreach ($sliders as $key => $slider)
                           <div class="carousel-item h-100 {{ $key == 0 ? ' active' : '' }} ltn__slide-item ltn__slide-item-10 section-bg-1  bg-image" data-bs-interval="3500" data-bs-bg="{{ $slider->image_url }}">
@@ -92,16 +105,16 @@ h3 {
     <!-- SLIDER AREA END -->
 
     <!-- BANNER AREA START -->
-    <div class="ltn__banner-area mt-4 pt-2">
+    <div class="mb-1cm">
         <div class="container px-3">
             <div
-             class="row ltn__custom-gutter--- justify-content-center px-4">
+             class="row px-4">
                 @foreach ($banners1 as $banner1)
                     <div
                     style="
                     height:350px
                     "
-                     class="col-lg-4 col-sm-6 mb-4 px-2">
+                     class="col-lg-4 col-sm-6 px-2">
                         <div class="ltn__banner-item w-100 h-100">
                             <div class="ltn__banner-img w-100 h-100">
                                 <a href="{{ $banner1->link }}">
@@ -115,16 +128,16 @@ h3 {
         </div>
     </div>
     <!-- BANNER AREA END -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting mb-2">
+    <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row">
+            <div class="row mb-1cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
-                        <h3 class="section-title font-san mb-4">Categories</h3>
+                        <h3 class="section-title font-san">Categories</h3>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row mb-1cm">
                 <div class="col-lg-12">
                     @php
                          $category_groups = getMenuCategories();
@@ -134,7 +147,7 @@ h3 {
                             @foreach ($category_groups as $index => $group)
                                 <!-- ltn__product-item -->
                                 @if ($index != 6)
-                                <div class="col-md-2 mb-3 px-2">
+                                <div class="col-md-2 px-2">
                                     <div class="card " style="">
                                         <div class="px-4 fullwrap">
                                             <img src="{{ $group->image_url }}" class="card-img-top" alt="...">
@@ -161,22 +174,22 @@ h3 {
 
     <!-- PRODUCT AREA START (product-item-3) -->
     @if (count($feature_products)>0)
-        <div class="ltn__product-area ltn__product-gutter container no-product-ratting mb-2">
+        <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row">
+            <div class="row mb-1cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
-                        <h3 class="section-title font-san mb-4">Promotion Items</h3>
+                        <h3 class="section-title font-san">Promotion Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="px-3">
+            <div class="px-3 mb-1cm">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row ">
                             @foreach ($feature_products as $feature_product)
                                 <!-- ltn__product-item -->
-                                <div class="col-md-2 mb-3 px-2">
+                                <div class="col-md-2 px-2">
                                     <div class="card " style="
                                     height:275px
                                     ">
@@ -255,23 +268,23 @@ h3 {
     <!-- PRODUCT AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+    <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row">
+            <div class="row mb-1cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
-                        <h3 class="section-title font-san mb-4">New Arrival Items</h3>
+                        <h3 class="section-title font-san">New Arrival Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="px-3">
+            <div class="px-3 mb-1cm">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row ">
 
                             @foreach ($new_products as $feature_product)
                                 <!-- ltn__product-item -->
-                                <div class="col-md-2 mb-3 px-2">
+                                <div class="col-md-2 px-2">
                                     <div class="card " style="
                                     height:275px
                                     ">
@@ -337,19 +350,19 @@ h3 {
 
     </div>
     <!-- PRODUCT AREA END -->
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
-    <div class="px-4">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="text-center px-2">
-                    <h3 class="section-title font-san mb-0">Best Selling Items</h3>
+    <div class="container no-product-ratting mb-1cm">
+        <div class="px-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center px-2">
+                        <h3 class="section-title font-san ">Best Selling Items</h3>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-    <div class="Container container mt-4 mb-4">
+    <div class="Container container mb-1cm">
         <div class="SlickCarousel px-4">
             @foreach ($left_sidebars as $left_sidebar)
             <div class="ProductBlock mx-2">
@@ -366,7 +379,7 @@ h3 {
         <!-- Carousel Container -->
     </div>
 
-    <div class="Container container pt-2">
+    <div class="Container container mb-1cm">
         {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
         <!-- Carousel Container -->
         <div class="SlickCarousel px-4">
@@ -388,20 +401,20 @@ h3 {
     </div>
 
     <!-- BANNER AREA START -->
-    <div class="ltn__banner-area mt-3">
+    <div class="ltn__banner-area">
         <div class="container px-2">
-            <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+            <div class="container no-product-ratting mb-1cm">
                 <div class="px-4">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center px-2">
-                                <h3 class="section-title font-san mb-3">SayAid's Collection</h3>
+                                <h3 class="section-title font-san">SayAid's Collection</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="Container container mt-2 mb-3">
+            <div class="Container container mb-1cm">
                 {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
                 <!-- Carousel Container -->
                 <div class="SlickCarousel px-3">
@@ -424,18 +437,18 @@ h3 {
     </div>
     <!-- BANNER AREA END -->
 
-    <div class="ltn__product-area ltn__product-gutter container no-product-ratting">
+    <div class="container no-product-ratting mb-1cm">
         <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
-                        <h3 class="section-title font-san mb-3">Product Brands</h3>
+                        <h3 class="section-title font-san">Product Brands</h3>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="Container container mt-4 mb-3">
+    <div class="Container container ">
         <div class="SlickCarousel2 px-4">
             @foreach (App\Model\Brand::all() as $brand)
             <div class="ProductBlock mx-2">
