@@ -9,7 +9,24 @@
                         <img width=100 height=100 src="{{asset('assets/theme/img/sayaid2.png')}}" alt="Logo">
                      </div>
                   </div>
-                  <p>SayAid, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range. Now we planned to move forward as new step by the name SayAid for e-business in the future. We will sell our product with fair and reasonable price depends on market demand. We aim that people can easily buy medicine, pharmacy and consumer products from this web and app..</p>
+                  <a class="mdl-txt" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    SayAid, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range....
+                  </a>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                          <button type="button" class="btn-close mt-3 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            SayAid, founded since 2018 and now 4 years ago, is a retail pharmacy company and we sold the products with reasonable price range. Now we planned to move forward as new step by the name SayAid for e-business in the future. We will sell our product with fair and reasonable price depends on market demand. We aim that people can easily buy medicine, pharmacy and consumer products from this web and app..
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div class="footer-address">
                      <ul>
                         <li>

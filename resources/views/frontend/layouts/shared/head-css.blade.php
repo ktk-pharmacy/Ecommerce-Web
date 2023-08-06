@@ -19,6 +19,14 @@
     .swal2-title {
         text-align: unset !important;
     }
+
+    a.mdl-txt {
+        color: #fff !important;
+    }
+
+    a.mdl-txt:hover {
+        color: #fff
+    }
 </style>
 
 @yield('css')
