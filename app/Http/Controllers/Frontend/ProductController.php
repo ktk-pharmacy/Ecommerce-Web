@@ -52,6 +52,9 @@ class ProductController extends Controller
 
         if ($request->brand) {
             $products = Product::where('brand_id',$request->brand)->publish()->latest()->paginate(12)->withQueryString();
+            if ($request->brand == "all") {
+                $products = Product::publish()->latest()->paginate(12)->withQueryString();
+            }
             return view('frontend.products.productlist-brand', compact('products', 'main_categories'));
         }
 

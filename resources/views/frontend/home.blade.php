@@ -80,6 +80,11 @@ h3 {
 .mb-1cm {
     margin-bottom: 37.8px;
 }
+
+.mb-0-8cm {
+    margin-bottom: 26.5px;
+}
+
 .mt-1cm {
     margin-top: 37.8px;
 }
@@ -105,7 +110,7 @@ h3 {
     <!-- SLIDER AREA END -->
 
     <!-- BANNER AREA START -->
-    <div class="mb-1cm">
+    <div class="mb-0-8cm">
         <div class="container px-3">
             <div
              class="row px-4">
@@ -130,14 +135,14 @@ h3 {
     <!-- BANNER AREA END -->
     <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row mb-1cm">
+            <div class="row mb-0-8cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
                         <h3 class="section-title font-san">Categories</h3>
                     </div>
                 </div>
             </div>
-            <div class="row mb-1cm">
+            <div class="row mb-0-8cm">
                 <div class="col-lg-12">
                     @php
                          $category_groups = getMenuCategories();
@@ -176,14 +181,14 @@ h3 {
     @if (count($feature_products)>0)
         <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row mb-1cm">
+            <div class="row mb-0-8cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
                         <h3 class="section-title font-san">Promotion Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="px-3 mb-1cm">
+            <div class="px-3 mb-0-8cm">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row ">
@@ -270,14 +275,14 @@ h3 {
     <!-- PRODUCT AREA START (product-item-3) -->
     <div class="container no-product-ratting">
         <div class="px-4">
-            <div class="row mb-1cm">
+            <div class="row mb-0-8cm">
                 <div class="col-lg-12">
                     <div class="text-center px-2">
                         <h3 class="section-title font-san">New Arrival Items</h3>
                     </div>
                 </div>
             </div>
-            <div class="px-3 mb-1cm">
+            <div class="px-3 mb-0-8cm">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="row ">
@@ -350,7 +355,7 @@ h3 {
 
     </div>
     <!-- PRODUCT AREA END -->
-    <div class="container no-product-ratting mb-1cm">
+    <div class="container no-product-ratting mb-0-8cm">
         <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -403,18 +408,18 @@ h3 {
     <!-- BANNER AREA START -->
     <div class="ltn__banner-area">
         <div class="container px-2">
-            <div class="container no-product-ratting mb-1cm">
+            <div class="container no-product-ratting mb-0-8cm">
                 <div class="px-4">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="text-center px-2">
+                            <div class="text-center">
                                 <h3 class="section-title font-san">SayAid's Collection</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="Container container mb-1cm">
+            <div class="Container container mb-0-8cm">
                 {{-- <h3 class="Head">Featured Products <span class="Arrows"></span></h3> --}}
                 <!-- Carousel Container -->
                 <div class="SlickCarousel px-3">
@@ -437,7 +442,7 @@ h3 {
     </div>
     <!-- BANNER AREA END -->
 
-    <div class="container no-product-ratting mb-1cm">
+    <div class="container no-product-ratting mb-0-8cm">
         <div class="px-4">
             <div class="row">
                 <div class="col-lg-12">
@@ -448,7 +453,7 @@ h3 {
             </div>
         </div>
     </div>
-    <div class="Container container ">
+    <div class="Container container mb-2">
         <div class="SlickCarousel2 px-4">
             @foreach (App\Model\Brand::all() as $brand)
             <div class="ProductBlock mx-2">
@@ -467,6 +472,18 @@ h3 {
             @endforeach
         </div>
         <!-- Carousel Container -->
+    </div>
+    <div class="container no-product-ratting mb-0-8cm">
+        <div class="px-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-end ">
+                        {{-- <h3 class="section-title font-san">Product Brands</h3> --}}
+                        <h4 class="font-san text-decoration-underline"><a href="{{ route('frontend.products.index') }}?brand=all">More Brands</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 @section('script')
