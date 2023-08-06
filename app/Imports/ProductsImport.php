@@ -45,7 +45,7 @@ class ProductsImport implements ToModel, WithHeadingRow
             'discount_to' => $row['discount_to']??null,
             'stock' => $row['stock']??30,
             'uom' => $row['uom']??'Each',
-            'product_detail' => $row['product_detail']??null,
+            'detail' => $row['product_detail']??null,
             'other_information' => $row['other_information']??null,
             'is_new' => $row['is_new'] ?? false,
         ]);
