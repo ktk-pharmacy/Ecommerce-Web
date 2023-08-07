@@ -273,87 +273,87 @@ h3 {
     <!-- PRODUCT AREA END -->
 
     <!-- PRODUCT AREA START (product-item-3) -->
-    <div class="container no-product-ratting">
-        <div class="px-4">
-            <div class="row mb-0-8cm">
-                <div class="col-lg-12">
-                    <div class="text-center px-2">
-                        <h3 class="section-title font-san">New Arrival Items</h3>
+    @if (count($new_products)>0)
+        <div class="container no-product-ratting">
+            <div class="px-4">
+                <div class="row mb-0-8cm">
+                    <div class="col-lg-12">
+                        <div class="text-center px-2">
+                            <h3 class="section-title font-san">New Arrival Items</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="px-3 mb-0-8cm">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row ">
+                <div class="px-3 mb-0-8cm">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row ">
 
-                            @foreach ($new_products as $feature_product)
-                                <!-- ltn__product-item -->
-                                <div class="col-md-2 px-2">
-                                    <div class="card " style="
-                                    height:275px
-                                    ">
-                                        <div class="px-4 fullwrap">
-                                            <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
-                                            @if ($feature_product->is_new)
-                                            <small class=" d-inline-block product-badge">
-                                                <ul>
-                                                    <li class="sale-badge">New</li>
-                                                </ul>
-                                            </small>
-                                            @endif
-                                            <div class="fullcap">
+                                @foreach ($new_products as $feature_product)
+                                    <!-- ltn__product-item -->
+                                    <div class="col-md-2 px-2">
+                                        <div class="card " style="
+                                        height:275px
+                                        ">
+                                            <div class="px-4 fullwrap">
+                                                <img src="{{ $feature_product->feature_image }}" class="card-img-top" alt="...">
+                                                @if ($feature_product->is_new)
+                                                <small class=" d-inline-block product-badge">
+                                                    <ul>
+                                                        <li class="sale-badge">New</li>
+                                                    </ul>
+                                                </small>
+                                                @endif
+                                                <div class="fullcap">
 
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                                            <i class="far fa-eye"></i>
-                                                        </a>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                                                <i class="far fa-eye"></i>
+                                                            </a>
 
-                                                    </div>
-                                                    <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
-                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                            title="Add to Cart"
-                                                            onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
-                                                            data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
-                                                            <i class="fas fa-shopping-cart"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="d-flex justify-content-center align-items-center">
-                                                        <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
-                                                            title="Wishlist"
-                                                            onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
-                                                            data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
-                                                            data-bs-target="#liton_wishlist_modal">
-                                                            <i class="far fa-heart"></i></a>
-                                                    </div>
+                                                        </div>
+                                                        <div class="{{ $feature_product->stock == 0 ? 'd-none' : '' }} d-flex justify-content-center align-items-center">
+                                                            <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                                title="Add to Cart"
+                                                                onclick="{{ customerAuth() ? 'addToCart(this)' : '' }}"
+                                                                data-add-to-cart-url="{{ route('frontend.products.add-to-cart', $feature_product->id) }}">
+                                                                <i class="fas fa-shopping-cart"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <a href="{{ customerAuth() ? 'javascript:void(0);' : route('frontend.login') . '?redirect=' . url()->full() }}"
+                                                                title="Wishlist"
+                                                                onclick="{{ customerAuth() ? 'addToWishlist(this)' : '' }}"
+                                                                data-add-to-wishlist-url="{{ route('frontend.products.add-to-wishlist', $feature_product->id) }}"
+                                                                data-bs-target="#liton_wishlist_modal">
+                                                                <i class="far fa-heart"></i></a>
+                                                        </div>
+
+                                                </div>
 
                                             </div>
-
-                                        </div>
-                                        <div class="card-body px-2">
-                                          <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
-                                            <small style="line-height: 15px" class="d-block font-san mb-1">
-                                                {{ $feature_product->name }}
-                                              </small>
-                                          </a>
-                                            <div class="product-price font-san">
-                                                <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
-                                                @if ($feature_product->discount)
-                                                    <del class="text-blue">{{ $feature_product->sale_price }}</del>
-                                                @endif
+                                            <div class="card-body px-2">
+                                            <a href="{{ route('frontend.products.detail', $feature_product->slug) }}">
+                                                <small style="line-height: 15px" class="d-block font-san mb-1">
+                                                    {{ $feature_product->name }}
+                                                </small>
+                                            </a>
+                                                <div class="product-price font-san">
+                                                    <span class="{{ isset($feature_product->discount)?'':'text-blue' }}">MMK{{ $feature_product->discount ?? $feature_product->sale_price }}</span>
+                                                    @if ($feature_product->discount)
+                                                        <del class="text-blue">{{ $feature_product->sale_price }}</del>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </div>
+    @endif
     <!-- PRODUCT AREA END -->
     <div class="container no-product-ratting mb-0-8cm">
         <div class="px-4">

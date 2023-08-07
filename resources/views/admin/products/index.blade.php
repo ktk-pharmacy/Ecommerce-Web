@@ -43,7 +43,7 @@
                <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                   <thead>
                      <tr>
-                        <th>No.</th>
+                        <th>Product Code</th>
                         <th>Name</th>
                         <th>Brand</th>
                         <th>Main/Sub Category</th>
@@ -59,13 +59,13 @@
                   <tbody>
                      @foreach ($products as $index => $product)
                      <tr>
-                        <td>{{ ++$index }}</td>
+                        <td>{{ $product->product_code }}</td>
                         <td>
                            <a href="{{ route('admin.products.edit', $product->id) }}">{{ $product->name }}</a>
                         </td>
                         <td>{{ $product->brand->name }}</td>
                         <td>
-                           {{ $product->sub_category->parent->name??'null' . ' / ' . $product->sub_category->name??'null' }}
+                           {{ $product->sub_category->parent->name }}/{{ $product->sub_category->name??'null' }}
                         </td>
                         <td>{{ $product->price }}</td>
                         <td>{{ $product->sale_price }}</td>

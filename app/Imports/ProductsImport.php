@@ -28,7 +28,8 @@ class ProductsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         $brand = Brand::where('slug',Str::slug($row['brand'], '-'))->first();
-        $category = Category::where('name',$row['category'], '-')->first();
+        $category = Category::where('name',$row['sub_category'])->first();
+        logger($row['sub_category']);
         return new Product([
             'name' => $row['name']??'Product',
             'product_code' => $row['product_code'],
