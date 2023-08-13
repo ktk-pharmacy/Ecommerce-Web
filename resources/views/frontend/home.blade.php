@@ -71,6 +71,7 @@ h3 {
     font-size: 16px !important;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
+    color: #000000cc;
     margin:0;
 }
 
@@ -153,14 +154,16 @@ h3 {
                                 <!-- ltn__product-item -->
                                 @if ($index != 6)
                                 <div class="col-md-2 px-2">
-                                    <div class="card " style="">
+                                    <div class="card " style="
+                                    height:293px
+                                    ">
                                         <div class="fullwrap">
                                             <img src="{{ $group->image_url }}" class="card-img-top" alt="...">
                                         </div>
                                         <div class="card-body d-flex justify-content-center align-items-center">
 
                                           <a href="{{ route('frontend.products.index') }}?group={{ $group->id }}">
-                                            <h6 style="line-height: 15px" class="d-block font-san mb-1">
+                                            <h6 style="line-height: 20px" class="d-block font-san mb-1">
                                                 {{ $group->name}}
                                               </h6>
                                           </a>

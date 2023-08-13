@@ -57,6 +57,7 @@
                   </thead>
 
                   <tbody>
+
                      @foreach ($products as $index => $product)
                      <tr>
                         <td>{{ $product->product_code }}</td>
