@@ -67,7 +67,7 @@
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('admin.products.import-form') }}">
-                                    Product import
+                                    Excel Import
                                 </a>
                             </li>
                             <li>

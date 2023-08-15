@@ -2,7 +2,11 @@
 
 use App\Model\City;
 use App\Model\Product;
+use Illuminate\Http\Request;
+use App\Imports\CategoryImport;
+use App\Imports\MainCategoryImport;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -98,6 +102,24 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('monthlysalereport', 'ReportController@monthlysalereport')->name('report.monthlysalereport');
     Route::get('topcategorysalereport', 'ReportController@topcategorysalereport')->name('report.topcategorysalereport');
 });
+
+Route::post('/main-category-import', function(Request $request) {
+    $request->validate([
+        'file' => 'required'
+    ]);
+    Excel::import(new CategoryImport, $request->file);
+    return redirect()->route('admin.categories.index')->with('success', 'Successfully imported!');
+
+})->name('main-category-import');
+
+Route::post('/sub-category-import', function(Request $request) {
+    $request->validate([
+        'file' => 'required'
+    ]);
+    Excel::import(new MainCategoryImport, $request->file);
+    return redirect()->route('admin.categories.index')->with('success', 'Successfully imported!');
+
+})->name('sub-category-import');
 
 Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
     Route::get('/cart-items', function () {
